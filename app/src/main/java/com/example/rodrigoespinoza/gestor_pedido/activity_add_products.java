@@ -1,24 +1,13 @@
 package com.example.rodrigoespinoza.gestor_pedido;
 
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-
-
-public class activity_producs extends AppCompatActivity implements View.OnClickListener{
+public class activity_add_products extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-
-    }
-
-    @Override
-    public void onClick(View v) {
-
+        setContentView(R.layout.activity_add_products);
     }
 }

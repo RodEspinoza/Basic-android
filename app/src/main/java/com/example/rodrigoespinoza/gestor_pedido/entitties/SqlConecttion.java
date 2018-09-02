@@ -27,7 +27,9 @@ public class SqlConecttion extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
+        for(Integer i=0; i<this.create_sentences.length; i++){
+            db.execSQL(this.create_sentences[i]);
+        }
     }
 
     @Override
