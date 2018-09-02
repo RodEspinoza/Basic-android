@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity_producs"
+            android:name=".Activity_products"
             android:label="@string/title_activity_producs"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activity_add_products"></activity>
