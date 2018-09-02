@@ -19,7 +19,8 @@
         <activity
             android:name=".activity_producs"
             android:label="@string/title_activity_producs"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activity_add_products"></activity>
     </application>
 
 </manifest>

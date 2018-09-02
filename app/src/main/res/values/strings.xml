@@ -3,4 +3,7 @@
     <string name="title_activity_producs">activity_producs</string>
     <string name="txtViewProducts">Productos!</string>
     <string name="btnOpenProductsView">OpenProductsView</string>
+    <string name="txProductName">Nombre del product</string>
+    <string name="txProductStock">Stock Producto</string>
+    <string name="btnAddProduct">Agregar producto</string>
 </resources>
