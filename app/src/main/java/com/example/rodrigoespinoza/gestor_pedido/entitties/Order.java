@@ -7,12 +7,14 @@ public class Order {
     String state;
     Integer total;
     Date order_date;
+    Integer id;
 
-    public Order(Product product, String state, Integer total, Date order_date) {
+    public Order(Product product, String state, Integer total, Integer id, Date order_date) {
         this.product = product;
         this.state = state;
         this.total = total;
         this.order_date = order_date;
+        this.id = id;
     }
 
     public Product getProduct() {
@@ -45,5 +47,13 @@ public class Order {
 
     public void setOrder_date(Date order_date) {
         this.order_date = order_date;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

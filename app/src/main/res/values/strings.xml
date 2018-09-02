@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">gestor_pedido</string>
+    <string name="title_activity_producs">activity_producs</string>
+    <string name="txtViewProducts">Productos!</string>
+    <string name="btnOpenProductsView">OpenProductsView</string>
 </resources>
