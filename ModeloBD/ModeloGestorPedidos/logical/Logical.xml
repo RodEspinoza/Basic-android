@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="E0F9F618-9EE0-3430-9304-C8907476DA09" mainViewID="4B7E3FFC-134D-61CF-7D22-594DBFF70321">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:26:23 UTC</createdTime>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

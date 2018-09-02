@@ -1,0 +1,60 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DDE3F9AC-5AC7-BC63-48C6-7CBB7466E54D" name="Product">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:46:53 UTC</createdTime>
+<generatorID>95968CF6-56F8-16F7-3048-4D608BD4782C</generatorID>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="75B6BD16-B5D0-3AA4-4FC7-C07EB0F62400">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:46:53 UTC</createdTime>
+<generatorID>E0C635C4-D0FC-FF79-A6B5-BEA332E16879</generatorID>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="name" id="509615A4-CE4F-4A5B-994A-12465D992EAB">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:46:53 UTC</createdTime>
+<generatorID>CE29974A-1460-92ED-DAB3-6F68B5277A44</generatorID>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="stock" id="F9FFF6CC-1471-07DA-0C4D-48BFFEF9CA81">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:46:53 UTC</createdTime>
+<generatorID>3B3FDB02-18E7-EB6F-8908-74836EF613E6</generatorID>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="739A8C30-48F1-2161-0053-7079B6F855DE" name="Product_PK">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:46:53 UTC</createdTime>
+<generatorID>7A073D7F-2E43-0246-ABC5-19E13C66E85F</generatorID>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="75B6BD16-B5D0-3AA4-4FC7-C07EB0F62400"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

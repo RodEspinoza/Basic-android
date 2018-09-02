@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="ModeloGestorPedidos" id="51394EFB-F0AC-8898-319C-747EBD911ACB" version="3.5">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:26:23 UTC</createdTime>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>51394EFB-F0AC-8898-319C-747EBD911ACB</designId>
+</OSDM_Design>

@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="PersonToUser" directorySegmentName="seg_0" id="54C43425-5882-7527-7268-3552B65AB815">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:40:15 UTC</createdTime>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<engineerTo>
+<item key="70319440-5B9C-0BDE-B76F-4AE9136111A4" value="true"/>
+</engineerTo>
+<sourcePk>CB8EBB6B-E26A-BD54-0444-30964BA4D320</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>AD004CC6-EA3F-3276-F8E6-20103FDB51A5</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>4EA72293-FA60-BBBE-CE56-7EE60E179462</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

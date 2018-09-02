@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BB78DE6C-AFBB-07A2-2D1D-89EC29330993" name="ProductToOrder">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:46:53 UTC</createdTime>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Product_id" id="AD20C6D5-6AD8-2E45-D261-85A21E9D4690">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:46:54 UTC</createdTime>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8B15C00E-8117-5285-E80B-42908B6B9A68" referredColumn="75B6BD16-B5D0-3AA4-4FC7-C07EB0F62400"/>
+</associations>
+</Column>
+<Column name="Order_id" id="B271766A-C4B0-DE91-34BA-FEE467C5AEDF">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:46:54 UTC</createdTime>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E6ECFC68-7CC8-B1C4-A01F-85A86AE7F881" referredColumn="86B63776-940E-43E9-C91C-1B3C24362960"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E836980D-54FE-3102-F079-2E9951A7B829" name="ProductToOrder_PK">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:46:53 UTC</createdTime>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AD20C6D5-6AD8-2E45-D261-85A21E9D4690"/>
+<colUsage columnID="B271766A-C4B0-DE91-34BA-FEE467C5AEDF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="006C8368-94C9-3E3B-6716-307D4CBCC1CE" name="ProductToOrder_Product_FK">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:46:54 UTC</createdTime>
+<generatorID>0A30E3BF-CB95-D464-D205-03C209A47BF8</generatorID>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AD20C6D5-6AD8-2E45-D261-85A21E9D4690"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="82DFFFF9-27A6-C123-868F-F4AC883D6055" name="ProductToOrder_Order_FK">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:46:54 UTC</createdTime>
+<generatorID>0A30E3BF-CB95-D464-D205-03C209A47BF8</generatorID>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B271766A-C4B0-DE91-34BA-FEE467C5AEDF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="FF1E166F-473F-87D8-F584-97788B7D53D9" name="Order">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:46:53 UTC</createdTime>
+<generatorID>EA94CCBD-0A79-ADD1-4E44-68323B19D20C</generatorID>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="86B63776-940E-43E9-C91C-1B3C24362960">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:46:53 UTC</createdTime>
+<generatorID>C457B664-67AD-3F12-900F-AAD8D6A4B805</generatorID>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="date" id="8089FEA7-8278-2C06-370F-445AF7597329">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:46:53 UTC</createdTime>
+<generatorID>4E559EE9-4862-3636-0F6E-9517BE8C08EB</generatorID>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="state" id="4AE9881B-F9CC-90DE-3ADC-C0EAC5C4ECCE">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:46:53 UTC</createdTime>
+<generatorID>644381A5-D254-C18B-7748-249156A39251</generatorID>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="total" id="C0E399E0-EC32-DF5E-AAA8-BEA934F21A1F">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:46:53 UTC</createdTime>
+<generatorID>5A7964E3-4E62-2694-D72D-3EA16D934D7A</generatorID>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Person_id" id="B7C7C9D4-E817-32CC-260D-899063F6BA5F">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:46:53 UTC</createdTime>
+<generatorID>1FF85D9C-5FA7-7579-34F5-F071432F3410</generatorID>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="612FFD8F-E1FF-E1ED-5EBD-C8BA0599200B" referredColumn="48BF551C-A731-807D-46AD-EF7B4D558239"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2C909D27-9649-4770-28A1-769950D4CE04" name="Order_PK">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:46:53 UTC</createdTime>
+<generatorID>B80E9AC2-3CC7-7916-CE41-16247AACAB75</generatorID>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="86B63776-940E-43E9-C91C-1B3C24362960"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="ED143A7A-359C-78A5-C80D-562F58A5E2DE" name="Order_Person_FK">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:46:53 UTC</createdTime>
+<generatorID>5CAB4F4B-A83D-ACBF-E5FE-5BC5A32AC40F</generatorID>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B7C7C9D4-E817-32CC-260D-899063F6BA5F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

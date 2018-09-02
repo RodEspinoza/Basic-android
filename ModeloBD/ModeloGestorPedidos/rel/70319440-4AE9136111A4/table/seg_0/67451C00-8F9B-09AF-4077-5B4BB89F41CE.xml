@@ -1,0 +1,109 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="67451C00-8F9B-09AF-4077-5B4BB89F41CE" name="User">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:46:53 UTC</createdTime>
+<generatorID>4EA72293-FA60-BBBE-CE56-7EE60E179462</generatorID>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="BDC3DC70-A1E8-F320-70C9-4A884571086B">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:46:53 UTC</createdTime>
+<generatorID>559A9688-303A-8854-C5DF-89302B580FA5</generatorID>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="email" id="80A4DE92-DAB9-0659-9C99-4C20D9F3F578">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:46:53 UTC</createdTime>
+<generatorID>4AD900A6-1643-D3A2-833C-9C4BB458EA45</generatorID>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="pass" id="2FFED1D1-BB82-593D-7945-407E789E3525">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:46:53 UTC</createdTime>
+<generatorID>EFC75566-527F-5AA1-BF4A-8098B6B12495</generatorID>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="date" id="C2E2C7F2-33FC-D8F5-EC84-D85EB27B24C1">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:46:53 UTC</createdTime>
+<generatorID>7BA0C5BC-BC1D-CE93-C201-C5A7BEFE6946</generatorID>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Person_id" id="7D68F649-714C-95A6-ED04-3DED7A1BD2DF">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:46:53 UTC</createdTime>
+<generatorID>1873A52E-2699-F09B-FCBC-BDC46FB41633</generatorID>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9D3120A9-0E1C-0C35-ABCC-A3575974CF2C" referredColumn="48BF551C-A731-807D-46AD-EF7B4D558239"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D5C3667E-9B6D-5519-4D33-4ED749D8E12A" name="User_PK">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:46:53 UTC</createdTime>
+<generatorID>7B4A8811-C70F-89D9-388D-CD69E63F864E</generatorID>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BDC3DC70-A1E8-F320-70C9-4A884571086B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A12A6896-96C2-462A-BB6E-0939527EDA09" name="User__IDX">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:46:53 UTC</createdTime>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>54C43425-5882-7527-7268-3552B65AB815</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="7D68F649-714C-95A6-ED04-3DED7A1BD2DF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="15FE662A-5E77-E307-1899-C289EDC69E66" name="User_Person_FK">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:46:53 UTC</createdTime>
+<generatorID>54C43425-5882-7527-7268-3552B65AB815</generatorID>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7D68F649-714C-95A6-ED04-3DED7A1BD2DF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
