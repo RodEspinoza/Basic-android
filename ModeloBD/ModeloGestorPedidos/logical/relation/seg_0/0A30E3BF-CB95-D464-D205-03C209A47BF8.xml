@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="ProductToOrder" directorySegmentName="seg_0" id="0A30E3BF-CB95-D464-D205-03C209A47BF8">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:39:31 UTC</createdTime>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<engineerTo>
+<item key="70319440-5B9C-0BDE-B76F-4AE9136111A4" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>95968CF6-56F8-16F7-3048-4D608BD4782C</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>EA94CCBD-0A79-ADD1-4E44-68323B19D20C</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

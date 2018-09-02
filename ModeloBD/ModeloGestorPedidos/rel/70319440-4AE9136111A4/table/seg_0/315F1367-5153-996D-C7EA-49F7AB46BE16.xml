@@ -1,0 +1,85 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="315F1367-5153-996D-C7EA-49F7AB46BE16" name="Person">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:46:53 UTC</createdTime>
+<generatorID>AD004CC6-EA3F-3276-F8E6-20103FDB51A5</generatorID>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="48BF551C-A731-807D-46AD-EF7B4D558239">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:46:53 UTC</createdTime>
+<generatorID>2BC64A55-1195-E72F-0E4E-D77DF1BC4FA3</generatorID>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="name" id="88208135-645E-7B9D-10DA-F230CF9B892B">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:46:53 UTC</createdTime>
+<generatorID>2F4007B8-8454-C2A7-F2DC-2CA064B26041</generatorID>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="last_name" id="097611FB-DE68-59E0-7E5F-F99FD940CA25">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:46:53 UTC</createdTime>
+<generatorID>2DB4C399-AFC2-D32F-3B84-450C38B65FF5</generatorID>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="sex" id="FB970670-EC0B-2AE4-2861-7E5E3DB20F34">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:46:53 UTC</createdTime>
+<generatorID>8A220688-B7DA-2FA8-4E3D-4B031AAAA6FE</generatorID>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="location" id="F3DE32A6-D21D-DBCA-2E6B-0D2421E544EC">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:46:53 UTC</createdTime>
+<generatorID>5DC16520-90B1-B0E6-2457-E66BAF15858F</generatorID>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C881FB02-F81F-F1A1-BE24-BB7223B11AAD" name="Person_PK">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:46:53 UTC</createdTime>
+<generatorID>CB8EBB6B-E26A-BD54-0444-30964BA4D320</generatorID>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="48BF551C-A731-807D-46AD-EF7B4D558239"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

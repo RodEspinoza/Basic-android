@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="4EA72293-FA60-BBBE-CE56-7EE60E179462" name="User">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:27:37 UTC</createdTime>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<engineerTo>
+<item key="70319440-5B9C-0BDE-B76F-4AE9136111A4" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id" id="559A9688-303A-8854-C5DF-89302B580FA5">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:27:51 UTC</createdTime>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<engineerTo>
+<item key="70319440-5B9C-0BDE-B76F-4AE9136111A4" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="email" id="4AD900A6-1643-D3A2-833C-9C4BB458EA45">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:28:04 UTC</createdTime>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<engineerTo>
+<item key="70319440-5B9C-0BDE-B76F-4AE9136111A4" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="pass" id="EFC75566-527F-5AA1-BF4A-8098B6B12495">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:30:04 UTC</createdTime>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<engineerTo>
+<item key="70319440-5B9C-0BDE-B76F-4AE9136111A4" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="date" id="7BA0C5BC-BC1D-CE93-C201-C5A7BEFE6946">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:30:33 UTC</createdTime>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<engineerTo>
+<item key="70319440-5B9C-0BDE-B76F-4AE9136111A4" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id1" id="1873A52E-2699-F09B-FCBC-BDC46FB41633">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:40:15 UTC</createdTime>
+<generatorID>54C43425-5882-7527-7268-3552B65AB815</generatorID>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<engineerTo>
+<item key="70319440-5B9C-0BDE-B76F-4AE9136111A4" value="true"/>
+</engineerTo>
+<referedAttribute>2BC64A55-1195-E72F-0E4E-D77DF1BC4FA3</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="7B4A8811-C70F-89D9-388D-CD69E63F864E" name="User PK">
+<createdBy>enzso</createdBy>
+<createdTime>2018-09-02 16:28:02 UTC</createdTime>
+<ownerDesignName>ModeloGestorPedidos</ownerDesignName>
+<engineerTo>
+<item key="70319440-5B9C-0BDE-B76F-4AE9136111A4" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>559A9688-303A-8854-C5DF-89302B580FA5</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
