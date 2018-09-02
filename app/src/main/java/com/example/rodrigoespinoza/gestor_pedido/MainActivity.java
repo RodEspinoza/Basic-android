@@ -22,8 +22,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btnOpenProductsView:
-                Intent intentProducts = new Intent(this, Activity_products.class);
-                startActivity(intentProducts);
+
+                Intent intent = new Intent(this, Activity_products.class);
+                startActivity(intent);
                 Toast.makeText(
                         this, "Open products activity", Toast.LENGTH_SHORT).show();
                 break;

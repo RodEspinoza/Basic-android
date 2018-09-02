@@ -6,4 +6,5 @@
     <string name="txProductName">Nombre del product</string>
     <string name="txProductStock">Stock Producto</string>
     <string name="btnAddProduct">Agregar producto</string>
+    <string name="title_activity_products">Activity_products</string>
 </resources>
