@@ -31,7 +31,7 @@ public class SqlConecttion extends SQLiteOpenHelper{
             "FOREIGN KEY(id_user) REFERENCES USER(id)";
 
     
-    final String CREATE_TABLE_PEDIDO = "CREATE TABLE pedido(" +
+    final String CREATE_TABLE_ORDER = "CREATE TABLE order(" +
             "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
             "fecha DATE NOT NULL, " +
             "estado VARCHAR(50) NOT NULL, " +
