@@ -14,19 +14,22 @@ public class SqlConecttion extends SQLiteOpenHelper{
     final String CREATE_TABLE_PRODUCT = "CREATE TABLE product(id INTEGER PRIMARY KEY AUTOINCREMENT," +
             "  name VARCHAR(100),  stock Integer" +
             ")";
+    
+    final String CREATE_TABLE_USER = "CREATE TABLE user (" +
+           "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
+           "email VARCHAR (50) NOT NULL, " +
+           "pass  VARCHAR (50) NOT NULL, " +
+           "fecha DATE NOT NULl)";
+    
     final String CREATE_TABLE_PERSON ="CREATE TABLE person(" +
             "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
             "name VARCHAR(50) NOT NULL, " +
             "last_name VARCHAR(50) NOT NULL," +
             "sexo VARCHAR(100) NOT NULL, " +
             "location VARCHAR(100) NOT NULL, " +
-            "id_user INTEGER NOT NULL)";
-    
-    final String CREATE_TABLE_USER = "CREATE TABLE user (" +
-            "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
-            "email VARCHAR (50) NOT NULL, " +
-            "pass  VARCHAR (50) NOT NULL, " +
-            "fecha DATE NOT NULl)";
+            "id_user INTEGER NOT NULL)" +
+            "FOREIGN KEY(id_user) REFERENCES USER(id)";
+
     
     final String CREATE_TABLE_PEDIDO = "CREATE TABLE pedido(" +
             "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
