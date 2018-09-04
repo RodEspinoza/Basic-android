@@ -2,7 +2,8 @@
     <string name="app_name">gestor_pedido</string>
     <string name="txtViewProducts">Productos!</string>
     <string name="btnOpenProductsView">Abrir productos</string>
-    <string name="txProductName">Nombre del product</string>
+    <string name="btnOpenOrderView">Abrir Ordenes</string>
+    <string name="txProductName">Nombre del producto</string>
     <string name="txProductStock">Stock Producto</string>
     <string name="btnAddProduct">Agregar producto</string>
     <string name="title_activity_products">Productos</string>
@@ -14,4 +15,7 @@
     <string name="txtEmail">Email</string>
     <string name="txtRePassword">Repite Contraseña</string>
     <string name="btnAddNewUser">Registrarse</string>
+    <string name="title_activity_porders">activity_porders</string>
+    <string name="title_activity_add_porder">add_porder</string>
+    <string name ="btnAddOrder">Agregar orden</string>
 </resources>

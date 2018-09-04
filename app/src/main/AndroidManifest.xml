@@ -21,7 +21,13 @@
             android:name=".Activity_products"
             android:label="@string/title_activity_products"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".RegisterUser"></activity>
+        <activity android:name=".RegisterUser" />
+        <activity
+            android:name=".activity_porders"
+            android:label="@string/title_activity_porders" />
+        <activity
+            android:name=".add_porder"
+            android:label="@string/title_activity_add_porder"></activity>
     </application>
 
 </manifest>
