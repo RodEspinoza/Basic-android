@@ -14,4 +14,6 @@
     <string name="txtEmail">Email</string>
     <string name="txtRePassword">Repite Contraseña</string>
     <string name="btnAddNewUser">Registrarse</string>
+    <string name="title_activity_porders">activity_porders</string>
+    <string name="title_activity_add_porder">add_porder</string>
 </resources>
