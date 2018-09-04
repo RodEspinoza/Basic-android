@@ -14,10 +14,30 @@ public class SqlConecttion extends SQLiteOpenHelper{
     final String CREATE_TABLE_PRODUCT = "CREATE TABLE product(id INTEGER PRIMARY KEY AUTOINCREMENT," +
             "  name VARCHAR(100),  stock Integer" +
             ")";
-    final String CREATE_TABLE_PERSON ="CREATE TABLE user(id INTEGER PRIMARY KEY AUTOINCREMENT," +
-            "  name VARCHAR(100), last_name VARCHAR(100)," +
-            "  sexo VARCHAR(100), location VARCHAR(100)" +
-    ")";
+    
+    final String CREATE_TABLE_USER = "CREATE TABLE user (" +
+           "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
+           "email VARCHAR (50) NOT NULL, " +
+           "pass  VARCHAR (50) NOT NULL, " +
+           "fecha DATE NOT NULl)";
+    
+    final String CREATE_TABLE_PERSON ="CREATE TABLE person(" +
+            "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
+            "name VARCHAR(50) NOT NULL, " +
+            "last_name VARCHAR(50) NOT NULL," +
+            "sexo VARCHAR(100) NOT NULL, " +
+            "location VARCHAR(100) NOT NULL, " +
+            "id_user INTEGER NOT NULL)" +
+            "FOREIGN KEY(id_user) REFERENCES USER(id)";
+
+    
+    final String CREATE_TABLE_ORDER = "CREATE TABLE order(" +
+            "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
+            "fecha DATE NOT NULL, " +
+            "estado VARCHAR(50) NOT NULL, " +
+            "total INTEGER NOT NULL, " +
+            "id_person INTEGER NOT NULL, " +
+            "id_user INTEGER NOT NULL)";
 
     String[] create_sentences = {CREATE_TABLE_PRODUCT, CREATE_TABLE_PERSON};
     public SqlConecttion(Context context, String name,
