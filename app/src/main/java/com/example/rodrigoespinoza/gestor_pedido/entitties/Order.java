@@ -3,26 +3,39 @@ package com.example.rodrigoespinoza.gestor_pedido.entitties;
 import java.util.Date;
 
 public class Order {
-    Product product;
+    Integer id_order;
+    Date fecha;
     String state;
     Integer total;
-    Date order_date;
-    Integer id;
+    Person person;
+    User user;
 
-    public Order(Product product, String state, Integer total, Integer id, Date order_date) {
-        this.product = product;
+    public Order() {
+    }
+
+    public Order(Integer id_order, Date fecha, String state, Integer total, Person person, User user) {
+        this.id_order = id_order;
+        this.fecha = fecha;
         this.state = state;
         this.total = total;
-        this.order_date = order_date;
-        this.id = id;
+        this.person = person;
+        this.user = user;
     }
 
-    public Product getProduct() {
-        return product;
+    public Integer getId_order() {
+        return id_order;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setId_order(Integer id_order) {
+        this.id_order = id_order;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
 
     public String getState() {
@@ -41,19 +54,19 @@ public class Order {
         this.total = total;
     }
 
-    public Date getOrder_date() {
-        return order_date;
+    public Person getPerson() {
+        return person;
     }
 
-    public void setOrder_date(Date order_date) {
-        this.order_date = order_date;
+    public void setPerson(Person person) {
+        this.person = person;
     }
 
-    public Integer getId() {
-        return id;
+    public User getUser() {
+        return user;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setUser(User user) {
+        this.user = user;
     }
 }
