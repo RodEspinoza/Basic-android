@@ -27,8 +27,8 @@ public class SqlConecttion extends SQLiteOpenHelper{
             "last_name VARCHAR(50) NOT NULL," +
             "sexo VARCHAR(100) NOT NULL, " +
             "location VARCHAR(100) NOT NULL, " +
-            "id_user INTEGER NOT NULL)" +
-            "FOREIGN KEY(id_user) REFERENCES USER(id)";
+            "id_user INTEGER NOT NULL," +
+            "FOREIGN KEY(id_user) REFERENCES USER(id))";
 
     
     final String CREATE_TABLE_ORDER = "CREATE TABLE order(" +
@@ -39,7 +39,7 @@ public class SqlConecttion extends SQLiteOpenHelper{
             "id_person INTEGER NOT NULL, " +
             "id_user INTEGER NOT NULL)";
 
-    String[] create_sentences = {CREATE_TABLE_PRODUCT, CREATE_TABLE_PERSON};
+    String[] create_sentences = {CREATE_TABLE_PRODUCT, CREATE_TABLE_USER,CREATE_TABLE_PERSON};
     public SqlConecttion(Context context, String name,
                          SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
