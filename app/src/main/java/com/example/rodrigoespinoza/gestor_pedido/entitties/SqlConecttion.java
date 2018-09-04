@@ -11,12 +11,6 @@ public class SqlConecttion extends SQLiteOpenHelper{
 
     String location;
 
-    final String CREATE_TABLE_PRODUCT = "CREATE TABLE product(" +
-            "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
-            "name VARCHAR(100) NOT NULL, " +
-            "stock INTEGER NOT NULL)";
-
-
     final String CREATE_TABLE_USER = "CREATE TABLE user (" +
            "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
            "email VARCHAR (50) NOT NULL, " +
@@ -30,7 +24,7 @@ public class SqlConecttion extends SQLiteOpenHelper{
             "sexo VARCHAR(100) NOT NULL, " +
             "location VARCHAR(100) NOT NULL, " +
             "id_user INTEGER NOT NULL," +
-            "FOREIGN KEY(id_user) REFERENCES USER(id))";
+            "FOREIGN KEY(id_user) REFERENCES user(id))";
 
     final String CREATE_TABLE_PEDIDO = "CREATE TABLE pedido(" +
             "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
@@ -38,7 +32,14 @@ public class SqlConecttion extends SQLiteOpenHelper{
             "estado VARCHAR(50) NOT NULL, " +
             "total INTEGER NOT NULL, " +
             "id_person INTEGER NOT NULL, " +
-            "id_user INTEGER NOT NULL)";
+            "id_product INTEGER NOT NULL, " +
+            "FOREIGN KEY(id_person) REFERENCES person(id), " +
+            "FOREIGN KEY(id_product) REFERENCES product(id))";
+
+    final String CREATE_TABLE_PRODUCT = "CREATE TABLE product(" +
+            "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
+            "name VARCHAR(100) NOT NULL, " +
+            "stock INTEGER NOT NULL)";
 
     String[] create_sentences = {CREATE_TABLE_USER, CREATE_TABLE_PERSON, CREATE_TABLE_PEDIDO, CREATE_TABLE_PRODUCT};
 

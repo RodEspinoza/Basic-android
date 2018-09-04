@@ -7,14 +7,15 @@ public class User {
     String email;
     String pass;
     Date register_date;
-    Person person;
 
-    public Person getPerson() {
-        return person;
+    public User() {
     }
 
-    public void setPerson(Person person) {
-        this.person = person;
+    public User(Integer id, String email, String pass, Date register_date) {
+        this.id = id;
+        this.email = email;
+        this.pass = pass;
+        this.register_date = register_date;
     }
 
     public Integer getId() {
@@ -48,14 +49,4 @@ public class User {
     public void setRegister_date(Date register_date) {
         this.register_date = register_date;
     }
-
-
-    public User(Integer id, String email, String pass, Date register_date) {
-        this.id = id;
-        this.email = email;
-        this.pass = pass;
-        this.register_date = register_date;
-    }
-
-
 }
