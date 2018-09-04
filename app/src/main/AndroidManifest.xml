@@ -27,7 +27,8 @@
             android:label="@string/title_activity_porders" />
         <activity
             android:name=".add_porder"
-            android:label="@string/title_activity_add_porder"></activity>
+            android:label="@string/title_activity_add_porder" />
+        <activity android:name=".RegisterPerson"></activity>
     </application>
 
 </manifest>

@@ -21,15 +21,12 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
 
     EditText txtEmail, txtPass, txtRePass;
     Button btnAddNewUser;
-    User user; // Variable necesaria para crear un nuevo usuario
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_user);
 
-        //Creamos un nuevo usuario
-        user = new User();
         //Pasamos las variables del activity a estas variables
         txtEmail = (EditText) findViewById(R.id.txtEmail);
         txtPass = (EditText) findViewById(R.id.txtPass);
@@ -43,40 +40,17 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()){
             case R.id.btnAddNewUser:
 
-                user.setEmail(txtEmail.getText().toString());
-                user.setPass(txtPass.getText().toString());
-                registrarUsuario(user);
+                String email = txtEmail.getText().toString();
+                String pass = txtPass.getText().toString();
+                String rePass = txtRePass.getText().toString();
 
+                if (pass.equals(rePass)){
+                    Intent intentNewPerson = new Intent(this, RegisterPerson.class);
+                    startActivity(intentNewPerson);
+                } else {
+                  Toast.makeText(this, "Contraseñas no coinciden", Toast.LENGTH_LONG).show();
+                }
                 break;
-        }
-    }
-
-    private boolean registrarUsuario(User user) {
-        SqlConecttion conn = new SqlConecttion(this, "bd_user", null, 1);
-        SQLiteDatabase db = conn.getWritableDatabase();
-
-        try{
-            ContentValues newUsuario = new ContentValues();
-            newUsuario.put("email", user.getEmail());
-            newUsuario.put("pass", user.getPass());
-
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-            Date date = new Date();
-            newUsuario.put("fecha", dateFormat.format(date));
-
-            Long id = db.insert("user", "id",newUsuario);
-            Toast.makeText(this, id.toString(), Toast.LENGTH_SHORT).show();
-            db.close();
-            //En esta seccion debo redireccionar a crear persona
-
-            conn.close();
-            return true;
-        }catch (Exception ex){
-            Toast.makeText(this,ex.getMessage(),Toast.LENGTH_SHORT).show();
-            conn.close();
-            return false;
-        }finally {
-            conn.close();
         }
     }
 }
