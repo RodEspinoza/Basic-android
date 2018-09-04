@@ -5,24 +5,18 @@ public class Person {
     String last_name;
     String sexo;
     String location;
-    Integer id;
+    User user;
 
-    public Person(Integer id, String name, String last_name, String sexo, String location) {
-        this.id = id;
+    public Person() {
+
+    }
+
+    public Person(String name, String last_name, String sexo, String location, User user) {
         this.name = name;
         this.last_name = last_name;
         this.sexo = sexo;
         this.location = location;
-    }
-
-
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
+        this.user = user;
     }
 
     public String getName() {
@@ -57,4 +51,11 @@ public class Person {
         this.location = location;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
