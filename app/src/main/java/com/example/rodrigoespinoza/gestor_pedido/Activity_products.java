@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.Debug;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.rodrigoespinoza.gestor_pedido.entitties.Product;
 import com.example.rodrigoespinoza.gestor_pedido.entitties.SqlConecttion;
@@ -36,11 +38,13 @@ public class Activity_products extends AppCompatActivity implements View.OnClick
         getProducts();
         ArrayAdapter arrayAdapter = new ArrayAdapter(
                 this, android.R.layout.simple_expandable_list_item_1, detailList);
+
         this.listViewProducts.setAdapter(arrayAdapter);
         this.listViewProducts.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String info ="Stock " + productList.get(position).getStock();
+                Toast.makeText(Activity_products.this, info, Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -55,11 +59,11 @@ public class Activity_products extends AppCompatActivity implements View.OnClick
         }
     }
     private void getProducts(){
-        conn = new SqlConecttion(this, "bd_products", null,1);
+        conn = new SqlConecttion(this, "bd_product", null,1);
         SQLiteDatabase db = conn.getWritableDatabase();
         Product product;
         this.productList = new ArrayList<Product>();
-        Cursor cursor = db.rawQuery("SELECT * FROM PRODUCT", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM product", null);
         while(cursor.moveToNext()){
             product = new Product();
             product.setId(cursor.getInt(0));
