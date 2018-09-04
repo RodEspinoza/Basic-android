@@ -1,5 +1,6 @@
 package com.example.rodrigoespinoza.gestor_pedido;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.View;
@@ -13,13 +14,19 @@ public class activity_porders extends Activity implements OnClickListener {
     protected void onCreate(Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_porders);
-        //this.btnOpenProductsView = findViewById(R.id.btnOpenProductsView)
-        
+        this.btnOpenProductsView = findViewById(R.id.btnOpenAddProduct);
+        this.btnOpenProductsView.setOnClickListener(this);
     }
 
 
     @Override
     public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btnOpenAddNewOrder:
+                Intent intent = new Intent(this, add_porder.class);
+                startActivity(intent);
+                break;
 
+        }
     }
 }
