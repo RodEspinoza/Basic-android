@@ -68,7 +68,8 @@ public class Activity_products extends AppCompatActivity implements View.OnClick
             product = new Product();
             product.setId(cursor.getInt(0));
             product.setName(cursor.getString(1));
-            product.setName(cursor.getString(2));
+            product.setStock(cursor.getInt(2));
+
             this.productList.add(product);
         }
         setDataToList();
