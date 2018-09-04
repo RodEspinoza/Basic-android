@@ -11,4 +11,7 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="txtUser">Usuario</string>
     <string name="txtPassword">Contraseña</string>
+    <string name="txtEmail">Email</string>
+    <string name="txtRePassword">Repite Contraseña</string>
+    <string name="btnAddNewUser">Registrarse</string>
 </resources>
