@@ -53,15 +53,13 @@ public class activity_add_products extends AppCompatActivity implements View.OnC
                 this, "bd_product", null,1);
         SQLiteDatabase db = conn.getWritableDatabase();
         try{
-            if(this.findProduct(product)){
+
             ContentValues values = new ContentValues();
             values.put("name", product.getName());
             values.put("stock", product.getStock());
             Long id = db.insert("product", "id", values);
             Toast.makeText(this, id.toString(), Toast.LENGTH_SHORT).show();
-            db.close();}else{
-
-            }
+            db.close();
 
         }catch (SQLiteException exc){
             Toast.makeText(this, "500", Toast.LENGTH_SHORT).show();
