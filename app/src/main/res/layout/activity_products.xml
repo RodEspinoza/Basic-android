@@ -15,5 +15,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/btnOpenAddProduct"
         android:text="@string/btnAddProduct"/>
-
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/listProduct">
+    </ListView>
 </LinearLayout>

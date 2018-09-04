@@ -49,27 +49,29 @@ public class activity_add_products extends AppCompatActivity implements View.OnC
 
     }
     private void addNewProduct(Product product){
-        if(!findProduct(product)){
         SqlConecttion conn = new SqlConecttion(
                 this, "bd_product", null,1);
         SQLiteDatabase db = conn.getWritableDatabase();
         try{
+            if(this.findProduct(product)){
             ContentValues values = new ContentValues();
             values.put("name", product.getName());
             values.put("stock", product.getStock());
             Long id = db.insert("product", "id", values);
             Toast.makeText(this, id.toString(), Toast.LENGTH_SHORT).show();
-            db.close();
+            db.close();}else{
+
+            }
+
         }catch (SQLiteException exc){
             Toast.makeText(this, "500", Toast.LENGTH_SHORT).show();
             db.close();
         }
-            Toast.makeText(
-                    this,
-                    "El producto ya se encuentra registrado",
-                    Toast.LENGTH_SHORT).show();
-        }
-    }
+     }
+
+
+
+
     private Boolean findProduct(Product product){
         SqlConecttion conn = new SqlConecttion(
                 this, "bd_product", null, 1);
@@ -85,9 +87,11 @@ public class activity_add_products extends AppCompatActivity implements View.OnC
             cursor.moveToFirst();
             cursor.close();
             conn.close();
+            Toast.makeText(this, cursor.getString(0),Toast.LENGTH_SHORT).show();
             return true;
         }
         catch (Exception exc){
+            Toast.makeText(this, exc.toString(), Toast.LENGTH_SHORT).show();
             conn.close();
             return false;
         }
