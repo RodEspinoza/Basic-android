@@ -1,5 +1,6 @@
 package com.example.rodrigoespinoza.gestor_pedido;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -12,6 +13,9 @@ import android.widget.Toast;
 
 import com.example.rodrigoespinoza.gestor_pedido.entitties.SqlConecttion;
 import com.example.rodrigoespinoza.gestor_pedido.entitties.User;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class RegisterUser extends AppCompatActivity implements View.OnClickListener {
 
@@ -52,14 +56,19 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
         SQLiteDatabase db = conn.getWritableDatabase();
 
         try{
-            String[] parametrosInsertar = {user.getEmail().toString(), user.getPass().toString()};
-            String[] camposObtenidos = {"id"};
+            ContentValues newUsuario = new ContentValues();
+            newUsuario.put("email", user.getEmail());
+            newUsuario.put("pass", user.getPass());
 
-            Cursor insertar = db.query("user", camposObtenidos, "email = ? AND pass = ?", parametrosInsertar, null, null, null);
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+            Date date = new Date();
+            newUsuario.put("fecha", dateFormat.format(date));
 
-            insertar.moveToFirst();
-            Toast.makeText(this, insertar.getString(0), Toast.LENGTH_SHORT).show();
-            insertar.close();
+            Long id = db.insert("user", "id",newUsuario);
+            Toast.makeText(this, id.toString(), Toast.LENGTH_SHORT).show();
+            db.close();
+            //En esta seccion debo redireccionar a crear persona
+
             conn.close();
             return true;
         }catch (Exception ex){

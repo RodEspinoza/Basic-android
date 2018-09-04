@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     //Variables relacionadas al login del usuario
     EditText txtUser, txtPass;
-    Button btnLogin;
+    Button btnLogin, btnRegistrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +29,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btnLogin.setOnClickListener(this); // Constantemente escuchando
 
+        //Importamos las variables del diseño hasta aqui
+        btnRegistrar = (Button) findViewById(R.id.btnRegister);
+        btnRegistrar.setOnClickListener(this);
     }
 
     @Override
@@ -48,6 +51,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 autenticaUsuario(user, pass);
 
+                break;
+            case R.id.btnRegister:
+
+                Intent regisrar = new Intent(this, RegisterUser.class);
+                startActivity(regisrar);
+                Toast.makeText(this, "New Register", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
