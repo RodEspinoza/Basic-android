@@ -20,7 +20,8 @@
         <activity
             android:name=".Activity_products"
             android:label="@string/title_activity_products"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".RegisterUser"></activity>
     </application>
 
 </manifest>
