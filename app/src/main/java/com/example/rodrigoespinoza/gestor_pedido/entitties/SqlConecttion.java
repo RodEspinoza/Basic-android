@@ -14,13 +14,14 @@ public class SqlConecttion extends SQLiteOpenHelper{
     final String CREATE_TABLE_PRODUCT = "CREATE TABLE product(id INTEGER PRIMARY KEY AUTOINCREMENT," +
             "  name VARCHAR(100),  stock Integer" +
             ")";
-    
+
+
     final String CREATE_TABLE_USER = "CREATE TABLE user (" +
            "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
            "email VARCHAR (50) NOT NULL, " +
            "pass  VARCHAR (50) NOT NULL, " +
            "fecha DATE NOT NULl)";
-    
+
     final String CREATE_TABLE_PERSON ="CREATE TABLE person(" +
             "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
             "name VARCHAR(50) NOT NULL, " +
@@ -30,8 +31,8 @@ public class SqlConecttion extends SQLiteOpenHelper{
             "id_user INTEGER NOT NULL," +
             "FOREIGN KEY(id_user) REFERENCES USER(id))";
 
-    
-    final String CREATE_TABLE_ORDER = "CREATE TABLE order(" +
+
+    final String CREATE_TABLE_PEDIDO = "CREATE TABLE pedido(" +
             "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
             "fecha DATE NOT NULL, " +
             "estado VARCHAR(50) NOT NULL, " +
@@ -39,7 +40,9 @@ public class SqlConecttion extends SQLiteOpenHelper{
             "id_person INTEGER NOT NULL, " +
             "id_user INTEGER NOT NULL)";
 
+
     String[] create_sentences = {CREATE_TABLE_PRODUCT, CREATE_TABLE_USER,CREATE_TABLE_PERSON};
+
     public SqlConecttion(Context context, String name,
                          SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
@@ -56,6 +59,7 @@ public class SqlConecttion extends SQLiteOpenHelper{
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
       db.execSQL("DROP TABLE IF EXISTS person");
       db.execSQL("DROP TABLE IF EXISTS product");
-
+      db.execSQL("DROP TABLE IF EXISTS user");
+      db.execSQL("DROP TABLE IF EXISTS pedido");
     }
 }

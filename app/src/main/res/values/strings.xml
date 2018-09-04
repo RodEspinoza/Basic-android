@@ -7,4 +7,9 @@
     <string name="txProductStock">Stock Producto</string>
     <string name="btnAddProduct">Agregar producto</string>
     <string name="title_activity_products">Activity_products</string>
+    <string name="btnLogin">Login</string>
+    <string name="btnRegister">Registrarse</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="txtUser">Usuario</string>
+    <string name="txtPassword">Contraseña</string>
 </resources>
