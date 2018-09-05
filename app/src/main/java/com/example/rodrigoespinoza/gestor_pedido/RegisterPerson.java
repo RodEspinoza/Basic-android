@@ -1,12 +1,14 @@
 package com.example.rodrigoespinoza.gestor_pedido;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -28,8 +30,13 @@ public class RegisterPerson extends AppCompatActivity implements RadioGroup.OnCh
     String sexoSelected;
     Spinner location;
     String localidad;
+    Button btnRegister;
 
+    // variables correspodientes a usuario
     User user;
+    String email, pass;
+
+    //variables correspodientes a personas
     Person person;
 
     @Override
@@ -44,6 +51,8 @@ public class RegisterPerson extends AppCompatActivity implements RadioGroup.OnCh
         txtLastName = (EditText) findViewById(R.id.txtLastName);
         rgGroup = (RadioGroup) findViewById(R.id.rgSexo);
         location = (Spinner) findViewById(R.id.spinnerLocation);
+        btnRegister = (Button) findViewById(R.id.btnRegisterPerson);
+        btnRegister.setOnClickListener(this);
         List list_location = new ArrayList<>();
         list_location.add("Santiago");
         list_location.add("Indepencia");
@@ -60,11 +69,16 @@ public class RegisterPerson extends AppCompatActivity implements RadioGroup.OnCh
 
         location.setAdapter(arrayAdapter);
 
-        location.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        location.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 localidad = location.getSelectedItem().toString();
                 Toast.makeText(RegisterPerson.this, localidad.toString(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
     }
@@ -82,10 +96,62 @@ public class RegisterPerson extends AppCompatActivity implements RadioGroup.OnCh
     @Override
     public void onClick(View v) {
 
+        switch (v.getId()){
+            case R.id.btnRegisterPerson:
+
+                Intent intentUser = getIntent();
+                Bundle bundleUser = intentUser.getExtras();
+
+                if(bundleUser != null){
+                    email = bundleUser.get("email").toString();
+                    pass = bundleUser.get("pass").toString();
+                }
+                // Agregamos Usuario
+                user.setEmail(email);
+                user.setPass(pass);
+
+                // Agregamos Person
+                person.setName(txtName.getText().toString());
+                person.setLast_name(txtLastName.getText().toString());
+                person.setSexo(sexoSelected);
+                person.setLocation(localidad);
+                person.setId_user(registrarUsuario(user));
+
+                registrarPersona(person);
+
+                break;
+        }
+
+    }
+
+    private Integer registrarPersona(Person person) {
+        SqlConecttion conn = new SqlConecttion(this, "bd_person", null, 1);
+        SQLiteDatabase db = conn.getWritableDatabase();
+
+        try{
+            ContentValues newPerson = new ContentValues();
+            newPerson.put("name", person.getName());
+            newPerson.put("last_name", person.getLast_name());
+            newPerson.put("sexo", person.getSexo());
+            newPerson.put("location", person.getLocation());
+            newPerson.put("id_user", person.getId_user());
+
+            Long id = db.insert("person", "id", newPerson);
+            Toast.makeText(this, id.toString(), Toast.LENGTH_SHORT).show();
+            db.close();
+            conn.close();
+            return Integer.parseInt(id.toString());
+        } catch (Exception ex){
+            db.close();
+            return 0;
+        } finally {
+            db.close();
+            return 0;
+        }
     }
 
 
-    private boolean registrarUsuario(User user) {
+    private Integer registrarUsuario(User user) {
         SqlConecttion conn = new SqlConecttion(this, "bd_user", null, 1);
         SQLiteDatabase db = conn.getWritableDatabase();
 
@@ -104,13 +170,14 @@ public class RegisterPerson extends AppCompatActivity implements RadioGroup.OnCh
             //En esta seccion debo redireccionar a crear persona
 
             conn.close();
-            return true;
+            return Integer.parseInt(id.toString());
         }catch (Exception ex){
             Toast.makeText(this,ex.getMessage(),Toast.LENGTH_SHORT).show();
             conn.close();
-            return false;
+            return 0;
         }finally {
             conn.close();
+            return 0;
         }
     }
 

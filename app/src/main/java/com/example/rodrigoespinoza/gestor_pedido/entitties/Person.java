@@ -5,18 +5,18 @@ public class Person {
     String last_name;
     String sexo;
     String location;
-    User user;
+    Integer id_user;
 
     public Person() {
 
     }
 
-    public Person(String name, String last_name, String sexo, String location, User user) {
+    public Person(String name, String last_name, String sexo, String location, Integer id_user) {
         this.name = name;
         this.last_name = last_name;
         this.sexo = sexo;
         this.location = location;
-        this.user = user;
+        this.id_user = id_user;
     }
 
     public String getName() {
@@ -51,11 +51,11 @@ public class Person {
         this.location = location;
     }
 
-    public User getUser() {
-        return user;
+    public Integer getId_user() {
+        return id_user;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setId_user(Integer id_user) {
+        this.id_user = id_user;
     }
 }
