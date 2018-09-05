@@ -70,12 +70,17 @@ public class RegisterPerson extends AppCompatActivity implements RadioGroup.OnCh
     }
 
     @Override
-    public void onClick(View v) {
-
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
+        if(checkedId == R.id.rbMan){
+            sexoSelected = "Masculino";
+        }
+        if (checkedId == R.id.rbWoman){
+            sexoSelected = "Femenino";
+        }
     }
 
     @Override
-    public void onCheckedChanged(RadioGroup group, int checkedId) {
+    public void onClick(View v) {
 
     }
 
