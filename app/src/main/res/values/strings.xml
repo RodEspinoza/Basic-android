@@ -25,4 +25,6 @@
     <string name="rbHembra">Femenino</string>
     <string name="spPerson">Persona</string>
     <string name="spProduct">Producto</string>
+    <string name="rbStatusOff">Pendiente</string>
+    <string name="rbStatusOn">Activo</string>
 </resources>
