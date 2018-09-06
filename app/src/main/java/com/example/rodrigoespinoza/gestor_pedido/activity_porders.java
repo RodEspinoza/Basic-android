@@ -6,10 +6,15 @@ import android.app.Activity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.Spinner;
+
+import com.example.rodrigoespinoza.gestor_pedido.entitties.Order;
 
 
 public class activity_porders extends Activity implements OnClickListener {
     Button btnOpenProductsView;
+    Spinner spProducts;
+    Order order;
     @Override
     protected void onCreate(Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);

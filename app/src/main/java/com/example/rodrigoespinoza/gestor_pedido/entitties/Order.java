@@ -8,18 +8,15 @@ public class Order {
     String state;
     Integer total;
     Person person;
-    User user;
+    Product product;
 
-    public Order() {
-    }
-
-    public Order(Integer id_order, Date fecha, String state, Integer total, Person person, User user) {
+    public Order(Integer id_order, Date fecha, String state, Integer total, Person person, Product product) {
         this.id_order = id_order;
         this.fecha = fecha;
         this.state = state;
         this.total = total;
         this.person = person;
-        this.user = user;
+        this.product = product;
     }
 
     public Integer getId_order() {
@@ -62,11 +59,11 @@ public class Order {
         this.person = person;
     }
 
-    public User getUser() {
-        return user;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 }
