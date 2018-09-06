@@ -1,12 +1,16 @@
 package com.example.rodrigoespinoza.gestor_pedido;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.rodrigoespinoza.gestor_pedido.entitties.SqlConecttion;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Button btnOpenProducts;// Solo para probar
@@ -63,7 +67,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private boolean autenticaUsuario(String user, String pass) {
 
-        return true;
+        SqlConecttion conn =  new SqlConecttion(this, "bd_user", null, 1);
+        SQLiteDatabase db = conn.getReadableDatabase();
+        try {
+            String[] parametrosBuscar = {user, pass};
+            String[] camposTraer = {"id"};
 
+            Cursor cursor = db.query("user", camposTraer, "email = ? AND pass = ?", parametrosBuscar, null, null, null);
+
+            cursor.moveToFirst();
+
+            Toast.makeText(this, cursor.getString(0), Toast.LENGTH_SHORT).show();
+            cursor.close();
+            conn.close();
+            return true;
+        } catch (Exception ex) {
+            Toast.makeText(this, ex.getMessage(), Toast.LENGTH_SHORT).show();
+            conn.close();
+            return false;
+        } finally {
+            return false;
+        }
     }
 }
