@@ -23,4 +23,6 @@
     <string name="txtLastName">Apellido</string>
     <string name="rbMacho">Masculino</string>
     <string name="rbHembra">Femenino</string>
+    <string name="spPerson">Persona</string>
+    <string name="spProduct">Producto</string>
 </resources>
