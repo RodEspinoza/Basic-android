@@ -25,6 +25,13 @@
     <string name="rbHembra">Femenino</string>
     <string name="spPerson">Persona</string>
     <string name="spProduct">Producto</string>
+
     <string name="rbStatusOff">Pendiente</string>
     <string name="rbStatusOn">Activo</string>
+
+
+    <!-- String asociado a Menu Activity-->
+    <string name="btnAddOrden">Ordenar</string>
+    <string name="btnEditProfile">Editar Perfil</string>
+
 </resources>

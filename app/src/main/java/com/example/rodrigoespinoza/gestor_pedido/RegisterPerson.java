@@ -98,7 +98,7 @@ public class RegisterPerson extends AppCompatActivity implements RadioGroup.OnCh
 
         switch (v.getId()){
             case R.id.btnRegisterPerson:
-
+                Intent intentBackMain = new Intent(this, MainActivity.class);
                 Intent intentUser = getIntent();
                 Bundle bundleUser = intentUser.getExtras();
 
@@ -118,6 +118,9 @@ public class RegisterPerson extends AppCompatActivity implements RadioGroup.OnCh
                 person.setId_user(registrarUsuario(user));
 
                 registrarPersona(person);
+                Toast.makeText(this, "Registrado", Toast.LENGTH_SHORT).show();
+
+                startActivity(intentBackMain);
 
                 break;
         }
@@ -137,7 +140,7 @@ public class RegisterPerson extends AppCompatActivity implements RadioGroup.OnCh
             newPerson.put("id_user", person.getId_user());
 
             Long id = db.insert("person", "id", newPerson);
-            Toast.makeText(this, id.toString(), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, id.toString(), Toast.LENGTH_SHORT).show();
             db.close();
             conn.close();
             return Integer.parseInt(id.toString());
@@ -165,14 +168,14 @@ public class RegisterPerson extends AppCompatActivity implements RadioGroup.OnCh
             newUsuario.put("fecha", dateFormat.format(date));
 
             Long id = db.insert("user", "id",newUsuario);
-            Toast.makeText(this, id.toString(), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, id.toString(), Toast.LENGTH_SHORT).show();
             db.close();
             //En esta seccion debo redireccionar a crear persona
 
             conn.close();
             return Integer.parseInt(id.toString());
         }catch (Exception ex){
-            Toast.makeText(this,ex.getMessage(),Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this,ex.getMessage(),Toast.LENGTH_SHORT).show();
             conn.close();
             return 0;
         }finally {

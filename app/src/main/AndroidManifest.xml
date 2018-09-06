@@ -28,7 +28,8 @@
         <activity
             android:name=".add_porder"
             android:label="@string/title_activity_add_porder" />
-        <activity android:name=".RegisterPerson"></activity>
+        <activity android:name=".RegisterPerson" />
+        <activity android:name=".MenuActivity"></activity>
     </application>
 
 </manifest>
