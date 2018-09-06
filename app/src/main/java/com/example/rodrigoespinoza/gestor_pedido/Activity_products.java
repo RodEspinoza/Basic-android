@@ -60,7 +60,7 @@ public class Activity_products extends AppCompatActivity implements View.OnClick
     }
     private void getProducts(){
         conn = new SqlConecttion(this, "bd_product", null,1);
-        SQLiteDatabase db = conn.getWritableDatabase();
+        SQLiteDatabase db = conn.getReadableDatabase();
         Product product;
         this.productList = new ArrayList<Product>();
         Cursor cursor = db.rawQuery("SELECT * FROM product", null);

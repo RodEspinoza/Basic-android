@@ -7,16 +7,30 @@
     android:orientation="vertical"
     >
 
-    <Spinner
-        android:id="@+id/spPerson"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/spPerson"></Spinner>
+
     <Spinner
         android:id="@+id/spProduct"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/spProduct"></Spinner>
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rdStatus">
+
+        <RadioButton
+            android:id="@+id/rbMan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rbStatusOn" />
+
+        <RadioButton
+            android:id="@+id/rbWoman"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rbStatusOff" />
+    </RadioGroup>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
