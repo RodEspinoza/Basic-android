@@ -12,15 +12,16 @@ import com.example.rodrigoespinoza.gestor_pedido.entitties.Order;
 
 
 public class activity_porders extends Activity implements OnClickListener {
-    Button btnOpenProductsView;
+    Button btnOpenAddNewOrder;
     Spinner spProducts;
     Order order;
     @Override
     protected void onCreate(Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_porders);
-        this.btnOpenProductsView = findViewById(R.id.btnOpenAddProduct);
-        this.btnOpenProductsView.setOnClickListener(this);
+        this.btnOpenAddNewOrder = findViewById(R.id.btnOpenAddNewOrder);
+        this.btnOpenAddNewOrder.setOnClickListener(this);
+        
     }
 
 
@@ -28,10 +29,10 @@ public class activity_porders extends Activity implements OnClickListener {
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btnOpenAddNewOrder:
-                Intent intent = new Intent(this, add_porder.class);
-                startActivity(intent);
+                Intent addOrderIntent = new Intent(this, add_porder.class);
+                startActivity(addOrderIntent);
                 break;
-
         }
+
     }
 }
