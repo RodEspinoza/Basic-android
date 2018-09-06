@@ -46,6 +46,8 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
 
                 if (pass.equals(rePass)){
                     Intent intentNewPerson = new Intent(this, RegisterPerson.class);
+                    intentNewPerson.putExtra("email", email);
+                    intentNewPerson.putExtra("pass", pass);
                     startActivity(intentNewPerson);
                 } else {
                   Toast.makeText(this, "Contraseñas no coinciden", Toast.LENGTH_LONG).show();
