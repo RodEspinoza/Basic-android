@@ -65,9 +65,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     intentMenuUser.putExtra("id",id);
                     startActivity(intentMenuUser);
                 } else {
-                    //Toast.makeText(this,"Usuario o Password incorrectos",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,"Usuario o Password incorrectos",Toast.LENGTH_SHORT).show();
                 }
-
                 break;
             case R.id.btnRegister:
 
