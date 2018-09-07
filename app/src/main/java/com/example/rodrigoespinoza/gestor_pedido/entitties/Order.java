@@ -19,6 +19,10 @@ public class Order {
         this.product = product;
     }
 
+    public Order() {
+
+    }
+
     public Integer getId_order() {
         return id_order;
     }

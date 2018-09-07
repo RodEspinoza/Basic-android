@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -49,6 +50,9 @@ public class activity_add_products extends AppCompatActivity implements View.OnC
 
     }
     private void addNewProduct(Product product){
+        if(TextUtils.isEmpty(this.product.getName())){
+
+        }
         SqlConecttion conn = new SqlConecttion(
                 this, "bd_product", null,1);
         SQLiteDatabase db = conn.getWritableDatabase();

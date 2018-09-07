@@ -15,8 +15,8 @@
     <string name="txtEmail">Email</string>
     <string name="txtRePassword">Repite Contraseña</string>
     <string name="btnAddNewUser">Registrarse</string>
-    <string name="title_activity_porders">activity_porders</string>
-    <string name="title_activity_add_porder">add_porder</string>
+    <string name="title_activity_porders">Ordenes </string>
+    <string name="title_activity_add_porder">Agregar Ordenes</string>
     <string name="btnAddOrder">Agregar orden</string>
     <!-- String asociados al activity RegisterPeron-->
     <string name="txtName">Nombre</string>
@@ -33,5 +33,6 @@
     <!-- String asociado a Menu Activity-->
     <string name="btnAddOrden">Ordenar</string>
     <string name="btnEditProfile">Editar Perfil</string>
+    <string name="txTotal">Total</string>
 
 </resources>
