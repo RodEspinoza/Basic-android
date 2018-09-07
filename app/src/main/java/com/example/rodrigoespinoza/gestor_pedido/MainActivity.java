@@ -58,8 +58,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 String user = txtUser.getText().toString();
                 String pass = txtPass.getText().toString();
-
-                autenticaUsuario(user, pass);
+                Integer id = autenticaUsuario(user, pass);
+                if(id != 0){
+                    Intent intentMenuUser = new Intent(this, MenuActivity.class);
+                    intentMenuUser.putExtra("id", id);
+                    startActivity(intentMenuUser);
+                } else {
+                    Toast.makeText(this,"Usuario o Password incorrectos",Toast.LENGTH_SHORT).show();
+                }
 
                 break;
             case R.id.btnRegister:
@@ -71,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private boolean autenticaUsuario(String user, String pass) {
+    private Integer autenticaUsuario(String user, String pass) {
 
         SqlConecttion conn =  new SqlConecttion(this, "bd_user", null, 1);
         SQLiteDatabase db = conn.getReadableDatabase();
@@ -83,16 +89,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             cursor.moveToFirst();
 
-            Toast.makeText(this, cursor.getString(0), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, cursor.getString(0), Toast.LENGTH_SHORT).show();
             cursor.close();
             conn.close();
-            return true;
+            return Integer.parseInt(cursor.getString(0));
         } catch (Exception ex) {
             Toast.makeText(this, ex.getMessage(), Toast.LENGTH_SHORT).show();
             conn.close();
-            return false;
+            return 0;
         } finally {
-            return false;
+            return 0;
         }
     }
 }
