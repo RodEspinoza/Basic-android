@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Integer id = autenticaUsuario(user, pass);
                 if(id != 0){
                     Intent intentMenuUser = new Intent(this, MenuActivity.class);
-                    intentMenuUser.putExtra("id", id);
+                    intentMenuUser.putExtra("id",id);
                     startActivity(intentMenuUser);
                 } else {
                     Toast.makeText(this,"Usuario o Password incorrectos",Toast.LENGTH_SHORT).show();
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             conn.close();
             return 0;
         } finally {
-            return 0;
+            conn.close();
         }
     }
 }

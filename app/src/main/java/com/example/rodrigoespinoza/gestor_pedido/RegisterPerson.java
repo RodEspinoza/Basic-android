@@ -180,7 +180,6 @@ public class RegisterPerson extends AppCompatActivity implements RadioGroup.OnCh
             return 0;
         }finally {
             conn.close();
-            return 0;
         }
     }
 
