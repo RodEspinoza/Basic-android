@@ -1,5 +1,6 @@
 package com.example.rodrigoespinoza.gestor_pedido;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -7,11 +8,13 @@ import android.app.Activity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.rodrigoespinoza.gestor_pedido.entitties.Order;
+import com.example.rodrigoespinoza.gestor_pedido.entitties.Person;
 import com.example.rodrigoespinoza.gestor_pedido.entitties.Product;
 import com.example.rodrigoespinoza.gestor_pedido.entitties.SqlConecttion;
 
@@ -19,18 +22,23 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class add_porder extends Activity implements View.OnClickListener {
+public class Activity_add_order extends Activity implements View.OnClickListener , RadioGroup.OnCheckedChangeListener{
     Spinner spProducts;
-    private ArrayList<String> productList;
     String selected_product;
     Order order;
+    RadioGroup rStatus;
     TextView total;
+    Boolean status = false;
+    private ArrayList<String> productList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_porder);
         this.spProducts = findViewById(R.id.spProduct);
         this.total = findViewById(R.id.txTotal);
+        this.rStatus = findViewById(R.id.rdStatus);
+
         getProducts();
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, productList);
         arrayAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
@@ -67,6 +75,7 @@ public class add_porder extends Activity implements View.OnClickListener {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         Date date = new Date();
         this.order.setFecha(date);
+        this.order.setState(status.toString());
 
     }
 
@@ -105,5 +114,42 @@ public class add_porder extends Activity implements View.OnClickListener {
         return product;
     }
 
+    private Integer registrarOrden(Order order) {
+        SqlConecttion conn = new SqlConecttion(this, "bd_person", null, 1);
+        SQLiteDatabase db = conn.getWritableDatabase();
 
+        try{
+            ContentValues newOrder = new ContentValues();
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+            Date date = new Date();
+            newOrder.put("fecha", dateFormat.format(date));
+            newOrder.put("product", this.order.getProduct().getId());
+            newOrder.put("total", this.order.getTotal());
+
+            Long id = db.insert("product", "id", newOrder);
+            //Toast.makeText(this, id.toString(), Toast.LENGTH_SHORT).show();
+            db.close();
+            conn.close();
+            return Integer.parseInt(id.toString());
+        } catch (Exception ex){
+            db.close();
+            return 0;
+        } finally {
+            db.close();
+            return 0;
+        }
+    }
+
+
+    @Override
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
+        switch (checkedId){
+            case R.id.rbFalse:
+                this.status = false;
+                break;
+            case R.id.rbTrue:
+                this.status = true;
+                break;
+        }
+    }
 }

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".add_porder"
+    tools:context=".Activity_add_order"
     android:orientation="vertical"
     >
 
@@ -22,13 +22,13 @@
         android:id="@+id/rdStatus">
 
         <RadioButton
-            android:id="@+id/rbMan"
+            android:id="@+id/rbFalse"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/rbStatusOn" />
 
         <RadioButton
-            android:id="@+id/rbWoman"
+            android:id="@+id/rbTrue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/rbStatusOff" />
@@ -40,10 +40,7 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="date"/>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
