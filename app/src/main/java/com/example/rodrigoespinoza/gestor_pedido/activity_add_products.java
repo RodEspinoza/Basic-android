@@ -76,7 +76,7 @@ public class activity_add_products extends AppCompatActivity implements View.OnC
 
     private Boolean findProduct(Product product){
         SqlConecttion conn = new SqlConecttion(
-                this, "bd_product", null, 1);
+                this, "bd_gestor_pedidos", null, 1);
         SQLiteDatabase db = conn.getReadableDatabase();
         try{
             String[] params = {product.getName()};

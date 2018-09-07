@@ -59,7 +59,7 @@ public class Activity_products extends AppCompatActivity implements View.OnClick
         }
     }
     private void getProducts(){
-        conn = new SqlConecttion(this, "bd_product", null,1);
+        conn = new SqlConecttion(this, "bd_gestor_pedido", null,1);
         SQLiteDatabase db = conn.getReadableDatabase();
         Product product;
         this.productList = new ArrayList<Product>();
