@@ -59,12 +59,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String user = txtUser.getText().toString();
                 String pass = txtPass.getText().toString();
                 Integer id = autenticaUsuario(user, pass);
+                Toast.makeText(this,id.toString(),Toast.LENGTH_SHORT).show();
                 if(id != 0){
                     Intent intentMenuUser = new Intent(this, MenuActivity.class);
-                    intentMenuUser.putExtra("id", id);
+                    intentMenuUser.putExtra("id",id);
                     startActivity(intentMenuUser);
                 } else {
-                    Toast.makeText(this,"Usuario o Password incorrectos",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this,"Usuario o Password incorrectos",Toast.LENGTH_SHORT).show();
                 }
 
                 break;
@@ -88,17 +89,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Cursor cursor = db.query("user", camposTraer, "email = ? AND pass = ?", parametrosBuscar, null, null, null);
 
             cursor.moveToFirst();
-
+            Integer id = cursor.getInt(cursor.getColumnIndex("id"));
             //Toast.makeText(this, cursor.getString(0), Toast.LENGTH_SHORT).show();
             cursor.close();
             conn.close();
-            return Integer.parseInt(cursor.getString(0));
+            return id;
         } catch (Exception ex) {
-            Toast.makeText(this, ex.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, ex.getMessage(), Toast.LENGTH_LONG).show();
             conn.close();
             return 0;
         } finally {
-            return 0;
+            conn.close();
         }
     }
 }
