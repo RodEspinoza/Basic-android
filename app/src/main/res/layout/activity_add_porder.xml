@@ -7,7 +7,10 @@
     android:orientation="vertical"
     >
 
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/title_activity_porders"/>
     <Spinner
         android:id="@+id/spProduct"
         android:layout_width="match_parent"
@@ -30,7 +33,17 @@
             android:layout_height="wrap_content"
             android:text="@string/rbStatusOff" />
     </RadioGroup>
-
+    <EditText
+        android:id="@+id/txTotal"
+        android:hint="@string/txTotal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="date"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
