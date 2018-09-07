@@ -33,6 +33,8 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
             idUser = Integer.parseInt(bundleMain.get("id").toString());
         }
 
+        //Toast.makeText(this, idUser.toString(), Toast.LENGTH_SHORT).show();
+
         btnAddOrder.setOnClickListener(this);
         btnEditProfile.setOnClickListener(this);
 
@@ -41,10 +43,16 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         String[] paramBuscarPerson = {idUser.toString()};
         String[] camposTraerPerson = {"name"};
 
-        Cursor cursor = db.rawQuery("SELECT name FROM person WHERE id_user = " + idUser, null);
-        cursor.moveToFirst();
+        //Cursor cursor = db.rawQuery("SELECT name FROM person WHERE id_user = " + idUser.toString(), null);
+        Cursor cursor = db.query("person", camposTraerPerson, "id_user = ?", paramBuscarPerson, null, null, null);
+        if (cursor.moveToFirst()){
+            Toast.makeText(this, "Encontre la wea", Toast.LENGTH_SHORT).show();
+        } else {
 
-        //Toast.makeText(this, cursor.getColumnName("name"), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "No encontre la wea", Toast.LENGTH_SHORT).show();
+        }
+
+        //Toast.makeText(this, cursor.getString(1), Toast.LENGTH_SHORT).show();
     }
 
     @Override

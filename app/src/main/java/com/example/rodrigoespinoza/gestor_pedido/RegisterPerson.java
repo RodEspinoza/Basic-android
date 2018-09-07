@@ -117,10 +117,12 @@ public class RegisterPerson extends AppCompatActivity implements RadioGroup.OnCh
                 person.setLocation(localidad);
                 person.setId_user(registrarUsuario(user));
 
-                registrarPersona(person);
-                Toast.makeText(this, "Registrado", Toast.LENGTH_SHORT).show();
-
-                startActivity(intentBackMain);
+                if (registrarPersona(person) != 0) {
+                    Toast.makeText(this, "Registrado", Toast.LENGTH_SHORT).show();
+                    startActivity(intentBackMain);
+                } else {
+                    Toast.makeText(this, "Ha ocurrido un problema", Toast.LENGTH_SHORT).show();
+                }
 
                 break;
         }
@@ -145,11 +147,10 @@ public class RegisterPerson extends AppCompatActivity implements RadioGroup.OnCh
             conn.close();
             return Integer.parseInt(id.toString());
         } catch (Exception ex){
-            db.close();
+            conn.close();
             return 0;
         } finally {
-            db.close();
-            return 0;
+            conn.close();
         }
     }
 
