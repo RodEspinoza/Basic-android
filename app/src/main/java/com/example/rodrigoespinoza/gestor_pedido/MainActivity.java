@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private Integer autenticaUsuario(String user, String pass) {
 
-        SqlConecttion conn =  new SqlConecttion(this, "bd_user", null, 1);
+        SqlConecttion conn =  new SqlConecttion(this, "bd_gestor_pedidos", null, 1);
         SQLiteDatabase db = conn.getReadableDatabase();
         try {
             String[] parametrosBuscar = {user, pass};
