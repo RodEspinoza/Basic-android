@@ -1,6 +1,7 @@
 package com.example.rodrigoespinoza.gestor_pedido;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import com.example.rodrigoespinoza.gestor_pedido.entitties.Order;
 import com.example.rodrigoespinoza.gestor_pedido.entitties.Person;
 import com.example.rodrigoespinoza.gestor_pedido.entitties.Product;
 import com.example.rodrigoespinoza.gestor_pedido.entitties.SqlConecttion;
+import com.example.rodrigoespinoza.gestor_pedido.entitties.User;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -29,6 +31,8 @@ public class Activity_add_order extends Activity implements View.OnClickListener
     RadioGroup rStatus;
     TextView total;
     Boolean status = false;
+    Integer user_id;
+    User user;
     private ArrayList<String> productList;
 
     @Override
@@ -38,6 +42,13 @@ public class Activity_add_order extends Activity implements View.OnClickListener
         this.spProducts = findViewById(R.id.spProduct);
         this.total = findViewById(R.id.txTotal);
         this.rStatus = findViewById(R.id.rdStatus);
+
+        Intent userMenuIntent =  getIntent();
+        Bundle bundleMain = userMenuIntent.getExtras();
+
+        if (bundleMain != null) {
+            this.user_id = Integer.parseInt(bundleMain.get("id").toString());
+        }
 
         getProducts();
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, productList);
@@ -70,6 +81,7 @@ public class Activity_add_order extends Activity implements View.OnClickListener
 
     private void submitOrder() {
         Product product = getProduct(this.selected_product);
+
         this.order.setProduct(product);
         this.order.setTotal(Integer.parseInt(this.total.toString()));
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
@@ -81,7 +93,7 @@ public class Activity_add_order extends Activity implements View.OnClickListener
 
     private void getProducts() {
         SqlConecttion conn = new SqlConecttion(
-                this, "bd_product", null, 1);
+                this, "bd_gestor_pedidos", null, 1);
         SQLiteDatabase db = conn.getWritableDatabase();
         Product product;
         this.productList = new ArrayList<String>();
@@ -97,7 +109,7 @@ public class Activity_add_order extends Activity implements View.OnClickListener
     }
 
     public Product getProduct(String productName) {
-        SqlConecttion conn = new SqlConecttion(this, "bd_product", null, 1);
+        SqlConecttion conn = new SqlConecttion(this, "bd_gestor_pedidos", null, 1);
         SQLiteDatabase db = conn.getReadableDatabase();
         Product product = new Product();
         try{
@@ -115,7 +127,7 @@ public class Activity_add_order extends Activity implements View.OnClickListener
     }
 
     private Integer registrarOrden(Order order) {
-        SqlConecttion conn = new SqlConecttion(this, "bd_person", null, 1);
+        SqlConecttion conn = new SqlConecttion(this, "bd_gestor_pedidos", null, 1);
         SQLiteDatabase db = conn.getWritableDatabase();
 
         try{
