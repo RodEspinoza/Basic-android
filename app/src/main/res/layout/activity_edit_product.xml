@@ -6,4 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".Activity_edit_product">
 
+    <Button
+        android:id="@+id/btnUpdateProduct"
+        android:text="@string/btnUpdateProduct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/txUpdateName"
+        android:hint="@string/txUpdateName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <EditText
+        android:id="@+id/txUpdateStock"
+        android:text="@string/txUpdateStock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <Button
+        android:id="@+id/btnDeleteProduct"
+        android:text="@string/btnDeleteProduct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 </android.support.constraint.ConstraintLayout>
