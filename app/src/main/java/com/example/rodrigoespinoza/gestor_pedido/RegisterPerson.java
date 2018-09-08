@@ -50,6 +50,7 @@ public class RegisterPerson extends AppCompatActivity implements RadioGroup.OnCh
         txtName = (EditText) findViewById(R.id.txtName);
         txtLastName = (EditText) findViewById(R.id.txtLastName);
         rgGroup = (RadioGroup) findViewById(R.id.rgSexo);
+        rgGroup.setOnCheckedChangeListener(this);
         location = (Spinner) findViewById(R.id.spinnerLocation);
         btnRegister = (Button) findViewById(R.id.btnRegisterPerson);
         btnRegister.setOnClickListener(this);
@@ -142,7 +143,7 @@ public class RegisterPerson extends AppCompatActivity implements RadioGroup.OnCh
             newPerson.put("id_user", person.getId_user());
 
             Long id = db.insert("person", "id", newPerson);
-            //Toast.makeText(this, id.toString(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, id.toString(), Toast.LENGTH_LONG).show();
             db.close();
             conn.close();
             return Integer.parseInt(id.toString());

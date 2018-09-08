@@ -44,7 +44,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         String[] camposTraerPerson = {"name"};
 
         //Cursor cursor = db.rawQuery("SELECT name FROM person WHERE id_user = " + idUser.toString(), null);
-       Cursor cursor = db.query("person", camposTraerPerson, "id_user = " + idUser, paramBuscarPerson, null, null, null);
+       Cursor cursor = db.query("person", camposTraerPerson, "id_user = ?", paramBuscarPerson, null, null, null);
 
         if (cursor.moveToFirst()){
             Toast.makeText(this, "Encontre la wea", Toast.LENGTH_SHORT).show();
