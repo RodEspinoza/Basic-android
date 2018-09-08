@@ -29,7 +29,8 @@
             android:name=".Activity_add_order"
             android:label="@string/title_activity_add_porder" />
         <activity android:name=".RegisterPerson" />
-        <activity android:name=".MenuActivity"></activity>
+        <activity android:name=".MenuActivity" />
+        <activity android:name=".EditPersonActivity"></activity>
     </application>
 
 </manifest>
