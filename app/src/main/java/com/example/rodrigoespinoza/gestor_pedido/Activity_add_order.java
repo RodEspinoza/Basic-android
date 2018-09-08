@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -33,6 +34,7 @@ public class Activity_add_order extends Activity implements View.OnClickListener
     Boolean status = false;
     Integer person_id;
     User user;
+    Button btnSubmitNewOrder;
     private ArrayList<String> productList;
 
     @Override
@@ -42,7 +44,8 @@ public class Activity_add_order extends Activity implements View.OnClickListener
         this.spProducts = findViewById(R.id.spProduct);
         this.total = findViewById(R.id.txTotal);
         this.rStatus = findViewById(R.id.rdStatus);
-
+        this.btnSubmitNewOrder = findViewById(R.id.btnSubmitNewOrder);
+        this.btnSubmitNewOrder.setOnClickListener(this);
         Intent userMenuIntent =  getIntent();
         Bundle bundleMain = userMenuIntent.getExtras();
 
@@ -72,9 +75,9 @@ public class Activity_add_order extends Activity implements View.OnClickListener
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.btnOpenAddNewOrder:
+            case R.id.btnSubmitNewOrder:
                submitOrder();
-                break;
+               break;
         }
     }
 
