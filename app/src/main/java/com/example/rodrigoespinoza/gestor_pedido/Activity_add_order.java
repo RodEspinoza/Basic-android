@@ -83,16 +83,23 @@ public class Activity_add_order extends Activity implements View.OnClickListener
 
     private void submitOrder() {
         Product product = getProduct(this.selected_product);
+        if(product.getId() == null)
+        {
+            toIntentMenu();
+        }
         Person person = new Person();
         person.setId(this.person_id);
+        this.order = new Order();
         this.order.setPerson(person);
         this.order.setProduct(product);
-        this.order.setTotal(Integer.parseInt(this.total.toString()));
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+
+        this.order.setTotal(Integer.parseInt(this.total.getText().toString()));
         Date date = new Date();
         this.order.setFecha(date);
         this.order.setState(status.toString());
-        registrarOrden(this.order);
+        if(saveOrder(this.order)>0){
+            Toast.makeText(this, "200", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void getProducts() {
@@ -119,18 +126,19 @@ public class Activity_add_order extends Activity implements View.OnClickListener
         try{
             String[] params = {productName};
             String[] fields = {"id"};
-            Cursor cursor = db.query("product",fields, "name=?", fields,null,null,null);
+            Cursor cursor = db.query("product",fields, "name=?", params,null,null,null);
             cursor.moveToFirst();
             product.setId(cursor.getInt(0));
             cursor.close();
             conn.close();
         }catch (Exception exc){
+
             product = null;
         }
         return product;
     }
 
-    private Integer registrarOrden(Order order) {
+    private Integer saveOrder(Order order) {
         SqlConecttion conn = new SqlConecttion(this, "bd_gestor_pedidos", null, 1);
         SQLiteDatabase db = conn.getWritableDatabase();
 
@@ -140,23 +148,28 @@ public class Activity_add_order extends Activity implements View.OnClickListener
             Date date = new Date();
             newOrder.put("fecha", dateFormat.format(date));
             newOrder.put("id_product", order.getProduct().getId());
-            newOrder.put("total", order.getTotal());
             newOrder.put("id_person", order.getPerson().getId());
+            newOrder.put("total", order.getTotal());
+            newOrder.put("estado", order.getState());
+            Long id = db.insert("pedido", "id", newOrder);
 
-            Long id = db.insert("product", "id", newOrder);
-            //Toast.makeText(this, id.toString(), Toast.LENGTH_SHORT).show();
             db.close();
             conn.close();
+
             return Integer.parseInt(id.toString());
-        } catch (Exception ex){
-            db.close();
-            return 0;
-        } finally {
+        } catch (Exception ex) {
             db.close();
             return 0;
         }
     }
 
+    private void toIntentMenu(){
+        Intent addOrderIntent = new Intent(this, MenuActivity.class);
+        addOrderIntent.putExtra("id", this.person_id);
+        Toast.makeText(this, "Something wrong", Toast.LENGTH_SHORT).show();
+        startActivity(addOrderIntent);
+
+    }
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {

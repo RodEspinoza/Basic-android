@@ -17,7 +17,7 @@ import com.example.rodrigoespinoza.gestor_pedido.entitties.SqlConecttion;
 
 import java.sql.SQLException;
 
-public class activity_add_products extends AppCompatActivity implements View.OnClickListener {
+public class Activity_add_products extends AppCompatActivity implements View.OnClickListener {
     EditText txProductName, txProductStock;
     Product product;
     Button btnSubmitNewProduct;

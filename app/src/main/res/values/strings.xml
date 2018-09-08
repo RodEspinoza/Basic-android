@@ -34,5 +34,6 @@
     <string name="btnAddOrden">Ordenar</string>
     <string name="btnEditProfile">Editar Perfil</string>
     <string name="txTotal">Total</string>
+    <string name="title_activity_edit_product">Activity_edit_product</string>
 
 </resources>
