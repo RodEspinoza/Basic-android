@@ -54,7 +54,7 @@ public class activity_add_products extends AppCompatActivity implements View.OnC
 
         }
         SqlConecttion conn = new SqlConecttion(
-                this, "bd_product", null,1);
+                this, "bd_gestor_pedidos", null,1);
         SQLiteDatabase db = conn.getWritableDatabase();
         try{
 
