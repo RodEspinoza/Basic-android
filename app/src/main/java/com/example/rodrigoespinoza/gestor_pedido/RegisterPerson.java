@@ -130,7 +130,7 @@ public class RegisterPerson extends AppCompatActivity implements RadioGroup.OnCh
     }
 
     private Integer registrarPersona(Person person) {
-        SqlConecttion conn = new SqlConecttion(this, "bd_person", null, 1);
+        SqlConecttion conn = new SqlConecttion(this, "bd_gestor_pedidos", null, 1);
         SQLiteDatabase db = conn.getWritableDatabase();
 
         try{
@@ -156,7 +156,7 @@ public class RegisterPerson extends AppCompatActivity implements RadioGroup.OnCh
 
 
     private Integer registrarUsuario(User user) {
-        SqlConecttion conn = new SqlConecttion(this, "bd_user", null, 1);
+        SqlConecttion conn = new SqlConecttion(this, "bd_gestor_pedidos", null, 1);
         SQLiteDatabase db = conn.getWritableDatabase();
 
         try{
