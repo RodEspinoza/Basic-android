@@ -31,7 +31,7 @@ public class Activity_add_order extends Activity implements View.OnClickListener
     RadioGroup rStatus;
     TextView total;
     Boolean status = false;
-    Integer user_id;
+    Integer person_id;
     User user;
     private ArrayList<String> productList;
 
@@ -47,7 +47,7 @@ public class Activity_add_order extends Activity implements View.OnClickListener
         Bundle bundleMain = userMenuIntent.getExtras();
 
         if (bundleMain != null) {
-            this.user_id = Integer.parseInt(bundleMain.get("id").toString());
+            this.person_id = Integer.parseInt(bundleMain.get("id").toString());
         }
 
         getProducts();
@@ -74,21 +74,22 @@ public class Activity_add_order extends Activity implements View.OnClickListener
         switch (v.getId()){
             case R.id.btnOpenAddNewOrder:
                submitOrder();
-
                 break;
         }
     }
 
     private void submitOrder() {
         Product product = getProduct(this.selected_product);
-
+        Person person = new Person();
+        person.setId(this.person_id);
+        this.order.setPerson(person);
         this.order.setProduct(product);
         this.order.setTotal(Integer.parseInt(this.total.toString()));
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         Date date = new Date();
         this.order.setFecha(date);
         this.order.setState(status.toString());
-
+        registrarOrden(this.order);
     }
 
     private void getProducts() {
@@ -135,8 +136,9 @@ public class Activity_add_order extends Activity implements View.OnClickListener
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
             Date date = new Date();
             newOrder.put("fecha", dateFormat.format(date));
-            newOrder.put("product", this.order.getProduct().getId());
-            newOrder.put("total", this.order.getTotal());
+            newOrder.put("id_product", order.getProduct().getId());
+            newOrder.put("total", order.getTotal());
+            newOrder.put("id_person", order.getPerson().getId());
 
             Long id = db.insert("product", "id", newOrder);
             //Toast.makeText(this, id.toString(), Toast.LENGTH_SHORT).show();

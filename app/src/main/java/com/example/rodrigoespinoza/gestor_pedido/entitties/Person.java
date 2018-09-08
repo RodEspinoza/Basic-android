@@ -1,6 +1,7 @@
 package com.example.rodrigoespinoza.gestor_pedido.entitties;
 
 public class Person {
+    Integer id;
     String name;
     String last_name;
     String sexo;
@@ -11,12 +12,12 @@ public class Person {
 
     }
 
-    public Person(String name, String last_name, String sexo, String location, Integer id_user) {
-        this.name = name;
-        this.last_name = last_name;
-        this.sexo = sexo;
-        this.location = location;
-        this.id_user = id_user;
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -56,6 +57,15 @@ public class Person {
     }
 
     public void setId_user(Integer id_user) {
+        this.id_user = id_user;
+    }
+
+    public Person(Integer id, String name, String last_name, String sexo, String location, Integer id_user) {
+        this.id = id;
+        this.name = name;
+        this.last_name = last_name;
+        this.sexo = sexo;
+        this.location = location;
         this.id_user = id_user;
     }
 }
