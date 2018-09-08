@@ -18,6 +18,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     Button btnAddOrder, btnEditProfile;
     Integer idUser;
     String namePerson;
+    Integer idPerson;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +34,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
             idUser = Integer.parseInt(bundleMain.get("id").toString());
         }
 
-        Toast.makeText(this, idUser.toString(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, idUser.toString(), Toast.LENGTH_SHORT).show();
 
         btnAddOrder.setOnClickListener(this);
         btnEditProfile.setOnClickListener(this);
@@ -41,11 +42,12 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         SqlConecttion conn = new SqlConecttion(this, "bd_gestor_pedidos", null, 1);
         SQLiteDatabase db = conn.getReadableDatabase();
         String[] paramBuscarPerson = {idUser.toString()};
-        String[] camposTraerPerson = {"name"};
+        String[] camposTraerPerson = {"name","id"};
 
        Cursor cursor = db.query("person", camposTraerPerson, "id_user = ?", paramBuscarPerson, null, null, null);
-
        cursor.moveToFirst();
+       namePerson = cursor.getString(cursor.getColumnIndex("name"));
+       idPerson = Integer.parseInt(cursor.getString(cursor.getColumnIndex("id")));
     }
 
     @Override
@@ -53,7 +55,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()){
             case R.id.btnAddOrde:
                 Intent addOrderIntent = new Intent(this, Activity_add_order.class);
-                addOrderIntent.putExtra("id", this.idUser);
+                addOrderIntent.putExtra("id", this.idPerson);
                 startActivity(addOrderIntent);
                 break;
             case R.id.btnEditPerfil:
