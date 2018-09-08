@@ -25,8 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         this.btnOpenProducts = findViewById(R.id.btnOpenProductsView);
         this.btnOpenProducts.setOnClickListener(this);
-        this.btnOpenOrderView = findViewById(R.id.btnOpenOrderView);
-        this.btnOpenOrderView.setOnClickListener(this);
+
 
         //Instancionamos las variables creadas
         txtUser = (EditText) findViewById(R.id.txtUser);
@@ -43,10 +42,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.btnOpenOrderView:
-                Intent orderIntent = new Intent(this, activity_porders.class);
-                startActivity(orderIntent);
-                break;
             case R.id.btnOpenProductsView:
 
                 Intent intent = new Intent(this, Activity_products.class);

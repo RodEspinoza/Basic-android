@@ -59,6 +59,8 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btnAddOrde:
+                Intent addOrderIntent = new Intent(this, Activity_add_order.class);
+                startActivity(addOrderIntent);
                 break;
             case R.id.btnEditPerfil:
                 break;
