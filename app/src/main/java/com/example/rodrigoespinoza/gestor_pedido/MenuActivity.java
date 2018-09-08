@@ -44,14 +44,14 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         String[] camposTraerPerson = {"name"};
 
         //Cursor cursor = db.rawQuery("SELECT name FROM person WHERE id_user = " + idUser.toString(), null);
-       // Cursor cursor = db.query("person", camposTraerPerson, "id_user = " + idUser, paramBuscarPerson, null, null, null);
+       Cursor cursor = db.query("person", camposTraerPerson, "id_user = " + idUser, paramBuscarPerson, null, null, null);
 
-       /* if (cursor.moveToFirst()){
+        if (cursor.moveToFirst()){
             Toast.makeText(this, "Encontre la wea", Toast.LENGTH_SHORT).show();
         } else {
 
             Toast.makeText(this, "No encontre la wea", Toast.LENGTH_SHORT).show();
-        }*/
+        }
 
         //Toast.makeText(this, cursor.getString(1), Toast.LENGTH_SHORT).show();
     }
