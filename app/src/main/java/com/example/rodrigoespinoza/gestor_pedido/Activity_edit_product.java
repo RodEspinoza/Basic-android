@@ -17,7 +17,10 @@ public class Activity_edit_product extends Activity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_products);
-
+        this.btnUpdateProduct = findViewById(R.id.btnUpdateProduct);
+        this.btnDeleteProduct = findViewById(R.id.btnDeleteProduct);
+        this.btnUpdateProduct.setOnClickListener(this);
+        this.btnDeleteProduct.setOnClickListener(this);
         Intent productIntent =  getIntent();
         Bundle productBundle = productIntent.getExtras();
 
