@@ -138,19 +138,24 @@ public class RegisterPerson extends AppCompatActivity implements RadioGroup.OnCh
 
     private boolean validarRut(String rut) {
         boolean validacion = false;
-        rut = rut.replace(".","");
-        rut = rut.replace("-","");
-        Integer rutAux = Integer.parseInt(rut.substring(0, rut.length() - 1));
-        char dv = rut.charAt(Integer.parseInt(rut.substring(rut.length() - 1, rut.length())));
-        int m = 0, s = 1;
-        for (; rutAux != 0; rutAux /= 10)
-        {
-            s = (s + rutAux % 10 * (9 - m++ % 6)) % 11;
+        try {
+            rut = rut.replace(".","");
+            rut = rut.replace("-","");
+            Integer rutAux = Integer.parseInt(rut.substring(0, rut.length() - 1));
+            char dv = rut.charAt(Integer.parseInt(rut.substring(rut.length() - 1, rut.length())));
+            int m = 0, s = 1;
+            for (; rutAux != 0; rutAux /= 10)
+            {
+                s = (s + rutAux % 10 * (9 - m++ % 6)) % 11;
+            }
+            if (dv == (char) (s != 0 ? s + 47 : 75)) {
+                validacion = true;
+            }
+            return validacion;
+        } catch (Exception ex){
+            Toast.makeText(this, ex.getMessage(), Toast.LENGTH_SHORT).show();
+            return validacion;
         }
-        if (dv == (char) (s != 0 ? s + 47 : 75)) {
-            validacion = true;
-        }
-        return validacion;
     }
 
     private Integer registrarPersona(Person person) {
