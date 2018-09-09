@@ -25,7 +25,7 @@ import java.util.List;
 
 public class RegisterPerson extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener, View.OnClickListener {
 
-    EditText txtName, txtLastName;
+    EditText txtName, txtLastName, txtRut;
     RadioGroup rgGroup;
     String sexoSelected;
     Spinner location;
@@ -47,6 +47,7 @@ public class RegisterPerson extends AppCompatActivity implements RadioGroup.OnCh
         user = new User();
         person = new Person();
 
+        txtRut = (EditText) findViewById(R.id.txtRut);
         txtName = (EditText) findViewById(R.id.txtName);
         txtLastName = (EditText) findViewById(R.id.txtLastName);
         rgGroup = (RadioGroup) findViewById(R.id.rgSexo);
@@ -112,22 +113,29 @@ public class RegisterPerson extends AppCompatActivity implements RadioGroup.OnCh
                 user.setPass(pass);
 
                 // Agregamos Person
-                person.setName(txtName.getText().toString());
-                person.setLast_name(txtLastName.getText().toString());
-                person.setSexo(sexoSelected);
-                person.setLocation(localidad);
-                person.setId_user(registrarUsuario(user));
+                if (validarRut(txtRut.getText().toString())){
+                    person.setRut(txtRut.getText().toString());
+                    person.setName(txtName.getText().toString());
+                    person.setLast_name(txtLastName.getText().toString());
+                    person.setSexo(sexoSelected);
+                    person.setLocation(localidad);
+                    person.setId_user(registrarUsuario(user));
 
-                if (registrarPersona(person) != 0) {
-                    Toast.makeText(this, "Registrado", Toast.LENGTH_SHORT).show();
-                    startActivity(intentBackMain);
+                    if (registrarPersona(person) != 0) {
+                        Toast.makeText(this, "Registrado", Toast.LENGTH_SHORT).show();
+                        startActivity(intentBackMain);
+                    } else {
+                        Toast.makeText(this, "Ha ocurrido un problema", Toast.LENGTH_SHORT).show();
+                    }
                 } else {
-                    Toast.makeText(this, "Ha ocurrido un problema", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Rut no valido", Toast.LENGTH_SHORT).show();
                 }
-
                 break;
         }
 
+    }
+
+    private boolean validarRut(String rut) {
     }
 
     private Integer registrarPersona(Person person) {
@@ -136,6 +144,7 @@ public class RegisterPerson extends AppCompatActivity implements RadioGroup.OnCh
 
         try{
             ContentValues newPerson = new ContentValues();
+            newPerson.put("rut",person.getRut());
             newPerson.put("name", person.getName());
             newPerson.put("last_name", person.getLast_name());
             newPerson.put("sexo", person.getSexo());

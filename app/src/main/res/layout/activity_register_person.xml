@@ -8,6 +8,14 @@
     android:orientation="vertical">
 
     <EditText
+        android:id="@+id/txtRut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/txtRut" />
+
+    <EditText
         android:id="@+id/txtName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

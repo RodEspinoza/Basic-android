@@ -19,6 +19,7 @@ public class SqlConecttion extends SQLiteOpenHelper{
 
     final String CREATE_TABLE_PERSON ="CREATE TABLE person(" +
             "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
+            "rut VARCHAR(50) NOT NULL," +
             "name VARCHAR(50) NOT NULL, " +
             "last_name VARCHAR(50) NOT NULL," +
             "sexo VARCHAR(100) NOT NULL, " +
