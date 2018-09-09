@@ -4,13 +4,8 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.os.Debug;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -20,9 +15,10 @@ import android.widget.Toast;
 import com.example.rodrigoespinoza.gestor_pedido.entitties.Product;
 import com.example.rodrigoespinoza.gestor_pedido.entitties.SqlConecttion;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Activity_products extends AppCompatActivity implements View.OnClickListener{
+public class Activity_products extends AppCompatActivity implements View.OnClickListener, Serializable{
     SqlConecttion conn;
     Button openAddProduct;
     ArrayList<Product> productList;
@@ -44,7 +40,12 @@ public class Activity_products extends AppCompatActivity implements View.OnClick
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String info ="Stock " + productList.get(position).getStock();
-                Toast.makeText(Activity_products.this, info, Toast.LENGTH_SHORT).show();
+                Product product = new Product();
+                Intent intent = new Intent(Activity_products.this, Activity_edit_product.class);
+                intent.putExtra("product_id", productList.get(position).getId());
+                intent.putExtra("product_name", productList.get(position).getName());
+                intent.putExtra("product_stock", productList.get(position).getStock());
+                startActivity(intent);
             }
         });
     }
@@ -53,13 +54,13 @@ public class Activity_products extends AppCompatActivity implements View.OnClick
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btnOpenAddProduct:
-                Intent intent = new Intent(this, activity_add_products.class);
+                Intent intent = new Intent(this, Activity_add_products.class);
                 startActivity(intent);
                 break;
         }
     }
     private void getProducts(){
-        conn = new SqlConecttion(this, "bd_gestor_pedido", null,1);
+        conn = new SqlConecttion(this, "bd_gestor_pedidos", null,1);
         SQLiteDatabase db = conn.getReadableDatabase();
         Product product;
         this.productList = new ArrayList<Product>();

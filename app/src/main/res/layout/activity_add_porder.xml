@@ -8,18 +8,21 @@
     >
 
     <TextView
+        android:text="@string/title_activity_porders"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/title_activity_porders"/>
+       />
     <Spinner
         android:id="@+id/spProduct"
+        android:text="@string/spProduct"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/spProduct"></Spinner>
+        ></Spinner>
     <RadioGroup
+        android:id="@+id/rdStatus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/rdStatus">
+        >
 
         <RadioButton
             android:id="@+id/rbFalse"
@@ -42,8 +45,9 @@
         />
 
     <Button
+        android:id="@+id/btnSubmitNewOrder"
+        android:text="@string/btnAddOrder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnSubmitNewOrder"/>
-
+       />
 </LinearLayout>

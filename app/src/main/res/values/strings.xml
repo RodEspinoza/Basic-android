@@ -34,5 +34,10 @@
     <string name="btnAddOrden">Ordenar</string>
     <string name="btnEditProfile">Editar Perfil</string>
     <string name="txTotal">Total</string>
+    <string name="title_activity_edit_product">Activity_edit_product</string>
+    <string name="btnUpdateProduct">Actualizar producto</string>
+    <string name="txUpdateName">Nombre</string>
+    <string name="txUpdateStock">Stock</string>
+    <string name="btnDeleteProduct">Eliminar producto</string>
 
 </resources>
