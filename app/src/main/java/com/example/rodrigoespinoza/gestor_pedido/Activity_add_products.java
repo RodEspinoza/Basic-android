@@ -1,6 +1,7 @@
 package com.example.rodrigoespinoza.gestor_pedido;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
@@ -64,6 +65,8 @@ public class Activity_add_products extends AppCompatActivity implements View.OnC
             Long id = db.insert("product", "id", values);
             Toast.makeText(this, id.toString(), Toast.LENGTH_SHORT).show();
             db.close();
+            Intent intent = new Intent(this, Activity_products.class);
+            startActivity(intent);
 
         }catch (SQLiteException exc){
             Toast.makeText(this, "500", Toast.LENGTH_SHORT).show();
