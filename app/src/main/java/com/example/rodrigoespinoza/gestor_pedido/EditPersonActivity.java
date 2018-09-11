@@ -63,7 +63,7 @@ public class EditPersonActivity extends AppCompatActivity implements View.OnClic
             rbHembraEdit.setChecked(true);
         }
 
-        
+
     }
 
     @Override
