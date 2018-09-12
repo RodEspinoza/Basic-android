@@ -113,7 +113,11 @@ public class EditPersonActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()){
+            case R.id.btnEditPerfil:
+                
+                break;
+        }
     }
 
     @Override
