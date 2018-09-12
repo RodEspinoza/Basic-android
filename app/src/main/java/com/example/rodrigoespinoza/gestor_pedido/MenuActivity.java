@@ -60,6 +60,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnEditPerfil:
                 Intent intentEdit = new Intent(this, EditPersonActivity.class);
+                intentEdit.putExtra("idUser", this.idUser);
                 intentEdit.putExtra("id", this.idPerson);
                 startActivity(intentEdit);
                 break;
