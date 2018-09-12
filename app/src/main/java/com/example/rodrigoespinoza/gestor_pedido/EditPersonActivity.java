@@ -148,15 +148,9 @@ public class EditPersonActivity extends AppCompatActivity implements View.OnClic
     public void onCheckedChanged(RadioGroup group, int checkedId) {
         if (checkedId == R.id.rbMachoEdit){
             sexo = "Masculino";
-<<<<<<< HEAD
-        } else {
-            sexo = "Familia";
-=======
         }
-
         if (checkedId == R.id.rbHembraEdit){
             sexo = "Femenino";
->>>>>>> 0e5148e42b4c04d7479fb8f461c84364e850dd78
         }
     }
 }
