@@ -101,7 +101,7 @@ public class EditPersonActivity extends AppCompatActivity implements View.OnClic
         spLocationEdit.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                
+
             }
 
             @Override
@@ -113,15 +113,26 @@ public class EditPersonActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()){
+            case R.id.btnEditPerfil:
+                
+                break;
+        }
     }
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
         if (checkedId == R.id.rbMachoEdit){
             sexo = "Masculino";
+<<<<<<< HEAD
         } else {
             sexo = "Familia";
+=======
+        }
+
+        if (checkedId == R.id.rbHembraEdit){
+            sexo = "Femenino";
+>>>>>>> 0e5148e42b4c04d7479fb8f461c84364e850dd78
         }
     }
 }
