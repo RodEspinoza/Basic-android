@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity_edit_product">
+    tools:context=".Activity_edit_product"
+    android:orientation="vertical">
 
     <Button
         android:id="@+id/btnUpdateProduct"
@@ -12,14 +13,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <EditText
-        android:id="@+id/txUpdateName"
+        android:id="@+id/txUpdatProductName"
         android:hint="@string/txUpdateName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
     <EditText
-        android:id="@+id/txUpdateStock"
-        android:text="@string/txUpdateStock"
+        android:id="@+id/txUpdaProductStock"
+        android:hint="@string/txUpdateStock"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />

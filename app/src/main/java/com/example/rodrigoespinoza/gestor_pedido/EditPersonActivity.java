@@ -121,7 +121,7 @@ public class EditPersonActivity extends AppCompatActivity implements View.OnClic
         if (checkedId == R.id.rbMachoEdit){
             sexo = "Masculino";
         } else {
-            sexo = "Familia"
+            sexo = "Familia";
         }
     }
 }
