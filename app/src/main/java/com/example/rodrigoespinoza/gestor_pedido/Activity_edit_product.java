@@ -1,5 +1,6 @@
 package com.example.rodrigoespinoza.gestor_pedido;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -47,15 +48,27 @@ public class Activity_edit_product extends Activity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
+        SqlConecttion conn = new SqlConecttion(
+                this, "bd_gestor_pedidos", null,1);
+        SQLiteDatabase db = conn.getWritableDatabase();
+        String[] parametros = {this.product.getId().toString()};
         switch (v.getId()){
             case R.id.btnDeleteProduct:
-                SqlConecttion conn = new SqlConecttion(
-                        this, "bd_gestor_pedidos", null,1);
-                SQLiteDatabase db = conn.getWritableDatabase();
-                // TODO queryes :D
+                // TODO TRY CATCH
+                db.delete("products", "id=?", parametros);
+                Toast.makeText(this,"Producto eliminado.",Toast.LENGTH_SHORT).show();
+                finishAffinity();
+                // TODO return to intent
                 break;
             case R.id.btnUpdateProduct:
-                // TODO queryes :D
+                // TODO TRY CATCH
+                this.product.setStock(Integer.parseInt(this.txUpdateProductStock.getText().toString()));
+                this.product.setName(this.txUpdateProductName.getText();
+                ContentValues values = new ContentValues();
+                values.put("stock", this.product.getStock());
+                values.put("name", this.product.getName());
+                db.update("products", values, "id=?",parametros);
+                // TODO return to intent
                 break;
         }
     }
