@@ -57,18 +57,22 @@ public class Activity_edit_product extends Activity implements View.OnClickListe
                 // TODO TRY CATCH
                 db.delete("products", "id=?", parametros);
                 Toast.makeText(this,"Producto eliminado.",Toast.LENGTH_SHORT).show();
-                finishAffinity();
+
                 // TODO return to intent
                 break;
             case R.id.btnUpdateProduct:
                 // TODO TRY CATCH
+                try{
                 this.product.setStock(Integer.parseInt(this.txUpdateProductStock.getText().toString()));
-                this.product.setName(this.txUpdateProductName.getText();
+                this.product.setName(this.txUpdateProductName.getText().toString());
                 ContentValues values = new ContentValues();
                 values.put("stock", this.product.getStock());
                 values.put("name", this.product.getName());
                 db.update("products", values, "id=?",parametros);
                 // TODO return to intent
+                }catch (Exception exp){
+                    Toast.makeText(this,"Wrong delete.",Toast.LENGTH_SHORT).show();
+                }
                 break;
         }
     }
