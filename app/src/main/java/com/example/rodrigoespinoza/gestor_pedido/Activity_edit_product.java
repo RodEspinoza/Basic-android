@@ -52,13 +52,14 @@ public class Activity_edit_product extends Activity implements View.OnClickListe
                 this, "bd_gestor_pedidos", null,1);
         SQLiteDatabase db = conn.getWritableDatabase();
         String[] parametros = {this.product.getId().toString()};
+        Intent intent = new Intent(this, Activity_products.class);
         switch (v.getId()){
             case R.id.btnDeleteProduct:
                 // TODO TRY CATCH
-                db.delete("products", "id=?", parametros);
+                db.delete("product", "id=?", parametros);
                 Toast.makeText(this,"Producto eliminado.",Toast.LENGTH_SHORT).show();
+                startActivity(intent);
 
-                // TODO return to intent
                 break;
             case R.id.btnUpdateProduct:
                 // TODO TRY CATCH
@@ -68,8 +69,8 @@ public class Activity_edit_product extends Activity implements View.OnClickListe
                 ContentValues values = new ContentValues();
                 values.put("stock", this.product.getStock());
                 values.put("name", this.product.getName());
-                db.update("products", values, "id=?",parametros);
-                // TODO return to intent
+                db.update("product", values, "id=?",parametros);
+                startActivity(intent);//TODO  No lo mejor.
                 }catch (Exception exp){
                     Toast.makeText(this,"Wrong delete.",Toast.LENGTH_SHORT).show();
                 }
