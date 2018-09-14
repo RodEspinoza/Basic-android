@@ -1,5 +1,6 @@
 package com.example.rodrigoespinoza.gestor_pedido;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -28,7 +29,7 @@ public class EditPersonActivity extends AppCompatActivity implements View.OnClic
     RadioGroup rgSexoEdit;
     RadioButton rbMachoEdit, rbHembraEdit;
 
-    Integer idPerson;
+    Integer idPerson, idUser;
     String nombre, apellido, localidad, sexo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,17 +51,37 @@ public class EditPersonActivity extends AppCompatActivity implements View.OnClic
 
         if (bundleMenu != null){
             idPerson = Integer.parseInt(bundleMenu.get("id").toString());
+            idUser = Integer.parseInt(bundleMenu.get("idUser").toString());
         }
 
         getCampos(idPerson);
 
         nombre = txtNameEdit.getText().toString();
         apellido = txtLastNameEdit.getText().toString();
-
-        actualizarPerson(nombre, apellido, sexo , localidad);
     }
 
-    private void actualizarPerson(String nombre, String apellido, String sexo, String localidad) {
+    private void actualizarPerson(String nombre, String apellido, String sexo, Integer idPerson) {
+        SqlConecttion conn = new SqlConecttion(this, "bd_gestor_pedidos", null,1);
+        SQLiteDatabase db = conn.getWritableDatabase();
+        try {
+
+            String[] parametrosBuscar = {idPerson.toString()};
+
+            ContentValues values = new ContentValues();
+            values.put("name", nombre);
+            values.put("last_name", apellido);
+            values.put("sexo", sexo);
+
+            db.update("person", values, "id = ?", parametrosBuscar);
+
+            Toast.makeText(this, "Perfil Actualizado", Toast.LENGTH_LONG).show();
+            conn.close();
+        } catch (Exception ex) {
+            Toast.makeText(this,"ERROR:" + ex.getMessage(),Toast.LENGTH_SHORT).show();
+            conn.close();
+        } finally {
+            conn.close();
+        }
     }
 
     private void getCampos(Integer idPerson) {
@@ -68,7 +89,7 @@ public class EditPersonActivity extends AppCompatActivity implements View.OnClic
         SQLiteDatabase db = conn.getReadableDatabase();
 
         String[] paramBuscarPerson = {idPerson.toString()};
-        String[] camposTraerPerson = {"name","last_name","sexo","location"};
+        String[] camposTraerPerson = {"name","last_name","sexo"};
 
         final Cursor cursor = db.query("person", camposTraerPerson, "id = ?", paramBuscarPerson, null, null, null);
         cursor.moveToFirst();
@@ -114,8 +135,11 @@ public class EditPersonActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.btnEditPerfil:
-                
+            case R.id.btnEdit:
+                actualizarPerson(txtNameEdit.getText().toString(), txtLastNameEdit.getText().toString(), sexo, idPerson);
+                Intent intentMenu = new Intent(this, MenuActivity.class);
+                intentMenu.putExtra("id", this.idUser);
+                startActivity(intentMenu);
                 break;
         }
     }
@@ -126,7 +150,6 @@ public class EditPersonActivity extends AppCompatActivity implements View.OnClic
             sexo = "Masculino";
 
         }
-
         if (checkedId == R.id.rbHembraEdit){
             sexo = "Femenino";
         }
