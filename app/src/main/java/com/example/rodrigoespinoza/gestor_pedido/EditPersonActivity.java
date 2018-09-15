@@ -52,6 +52,7 @@ public class EditPersonActivity extends AppCompatActivity implements View.OnClic
         if (bundleMenu != null){
             idPerson = Integer.parseInt(bundleMenu.get("id").toString());
             idUser = Integer.parseInt(bundleMenu.get("idUser").toString());
+
         }
 
         getCampos(idPerson);
@@ -60,7 +61,7 @@ public class EditPersonActivity extends AppCompatActivity implements View.OnClic
         apellido = txtLastNameEdit.getText().toString();
     }
 
-    private void actualizarPerson(String nombre, String apellido, String sexo, Integer idPerson) {
+    private void actualizarPerson(String nombre, String apellido, String sexo, Integer idPerson, String location) {
         SqlConecttion conn = new SqlConecttion(this, "bd_gestor_pedidos", null,1);
         SQLiteDatabase db = conn.getWritableDatabase();
         try {
@@ -71,6 +72,8 @@ public class EditPersonActivity extends AppCompatActivity implements View.OnClic
             values.put("name", nombre);
             values.put("last_name", apellido);
             values.put("sexo", sexo);
+            values.put("location", location);
+
 
             db.update("person", values, "id = ?", parametrosBuscar);
 
@@ -89,14 +92,14 @@ public class EditPersonActivity extends AppCompatActivity implements View.OnClic
         SQLiteDatabase db = conn.getReadableDatabase();
 
         String[] paramBuscarPerson = {idPerson.toString()};
-        String[] camposTraerPerson = {"name","last_name","sexo"};
+        String[] camposTraerPerson = {"name","last_name","sexo, location"};
 
         final Cursor cursor = db.query("person", camposTraerPerson, "id = ?", paramBuscarPerson, null, null, null);
         cursor.moveToFirst();
 
         txtNameEdit.setText(cursor.getString(0));
         txtLastNameEdit.setText(cursor.getString(1));
-
+        this.localidad = cursor.getString(3);
         if (cursor.getString(2).equals("Masculino")){
             rbMachoEdit.setChecked(true);
         } else {
@@ -116,13 +119,20 @@ public class EditPersonActivity extends AppCompatActivity implements View.OnClic
 
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, list_location);
         arrayAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-
         spLocationEdit.setAdapter(arrayAdapter);
+        for(int i=0; i<list_location.size(); i++){
+            if(list_location.get(i).toString() == localidad) {
+                spLocationEdit.setSelection(i);
+                break;
+            }
+        }
+        spLocationEdit.setSelected(true);
 
         spLocationEdit.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
+                //selected_product = spProducts.getSelectedItem().toString();
             }
 
             @Override
@@ -136,7 +146,7 @@ public class EditPersonActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btnEdit:
-                actualizarPerson(txtNameEdit.getText().toString(), txtLastNameEdit.getText().toString(), sexo, idPerson);
+                actualizarPerson(txtNameEdit.getText().toString(), txtLastNameEdit.getText().toString(), sexo, idPerson, localidad);
                 Intent intentMenu = new Intent(this, MenuActivity.class);
                 intentMenu.putExtra("id", this.idUser);
                 startActivity(intentMenu);
