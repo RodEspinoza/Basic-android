@@ -56,13 +56,17 @@ public class Activity_edit_product extends Activity implements View.OnClickListe
         switch (v.getId()){
             case R.id.btnDeleteProduct:
                 // TODO TRY CATCH
-                db.delete("product", "id=?", parametros);
-                Toast.makeText(this,"Producto eliminado.",Toast.LENGTH_SHORT).show();
-                startActivity(intent);
-
+                try {
+                    db.delete("product", "id=?", parametros);
+                    Toast.makeText(this, "Producto eliminado.", Toast.LENGTH_SHORT).show();
+                    startActivity(intent);
+                }
+                catch (Exception exc){
+                    Toast.makeText(this,"Wrong update.",Toast.LENGTH_SHORT).show();
+                }
                 break;
             case R.id.btnUpdateProduct:
-                // TODO TRY CATCH
+
                 try{
                 this.product.setStock(Integer.parseInt(this.txUpdateProductStock.getText().toString()));
                 this.product.setName(this.txUpdateProductName.getText().toString());

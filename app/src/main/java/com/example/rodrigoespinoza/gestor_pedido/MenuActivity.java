@@ -15,7 +15,7 @@ import com.example.rodrigoespinoza.gestor_pedido.entitties.SqlConecttion;
 
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener{
 
-    Button btnAddOrder, btnEditProfile;
+    Button btnAddOrder, btnEditProfile, btnOpenProducts;
     Integer idUser;
     String namePerson;
     Integer idPerson;
@@ -26,7 +26,8 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
 
         btnAddOrder = (Button) findViewById(R.id.btnAddOrde);
         btnEditProfile = (Button) findViewById(R.id.btnEditPerfil);
-
+        this.btnOpenProducts = findViewById(R.id.btnOpenProductsView);
+        this.btnOpenProducts.setOnClickListener(this);
         Intent intentMain =  getIntent();
         Bundle bundleMain = intentMain.getExtras();
 
@@ -53,6 +54,12 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()){
+            case R.id.btnOpenProductsView:
+                Intent intent = new Intent(this, Activity_products.class);
+                startActivity(intent);
+                Toast.makeText(
+                        this, "Open products activity", Toast.LENGTH_SHORT).show();
+                break;
             case R.id.btnAddOrde:
                 Intent addOrderIntent = new Intent(this, Activity_add_order.class);
                 addOrderIntent.putExtra("id", this.idPerson);

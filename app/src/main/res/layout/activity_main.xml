@@ -35,10 +35,5 @@
         android:layout_height="wrap_content"
         android:text="@string/btnRegister" />
 
-    <Button
-        android:id="@+id/btnOpenProductsView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/btnOpenProductsView" />
 
 </LinearLayout>

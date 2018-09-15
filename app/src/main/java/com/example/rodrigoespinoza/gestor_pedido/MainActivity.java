@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.example.rodrigoespinoza.gestor_pedido.entitties.SqlConecttion;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    Button btnOpenProducts, btnOpenOrderView;// Solo para probar
+    Button btnOpenOrderView;// Solo para probar
 
     //Variables relacionadas al login del usuario
     EditText txtUser, txtPass;
@@ -23,8 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        this.btnOpenProducts = findViewById(R.id.btnOpenProductsView);
-        this.btnOpenProducts.setOnClickListener(this);
+
 
 
         //Instancionamos las variables creadas
@@ -42,13 +41,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.btnOpenProductsView:
-
-                Intent intent = new Intent(this, Activity_products.class);
-                startActivity(intent);
-                Toast.makeText(
-                        this, "Open products activity", Toast.LENGTH_SHORT).show();
-                break;
             case R.id.btnLogin:
 
                 String user = txtUser.getText().toString();
