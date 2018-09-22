@@ -3,6 +3,8 @@ package com.example.rodrigoespinoza.gestor_pedido;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +15,7 @@ import android.widget.Toast;
 import com.example.rodrigoespinoza.gestor_pedido.entitties.SqlConecttion;
 import com.example.rodrigoespinoza.gestor_pedido.fragmentos.RegistroFragment;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, RegistroFragment.OnFragmentInteractionListener {
     Button btnOpenOrderView;// Solo para probar
 
     //Variables relacionadas al login del usuario
@@ -39,10 +41,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnRegistrar = (Button) findViewById(R.id.btnRegister);
         btnRegistrar.setOnClickListener(this);
         registroFragment = new RegistroFragment();
+
+        //getSupportFragmentManager().beginTransaction().add(R.id.contenedorFragment, registroFragment).commit();
     }
 
     @Override
     public void onClick(View v) {
+        //FragmentTransaction fragmentTransaction = getSupportFragmentManager.beginTransaction();
         switch (v.getId()){
             case R.id.btnLogin:
 
@@ -58,12 +63,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Toast.makeText(this,"Usuario o Password incorrectos",Toast.LENGTH_SHORT).show();
                 }
                 break;
-            case R.id.btnRegister:
+            case R.id.btnFragLoginRegistrat:
 
-                Intent regisrar = new Intent(this, RegisterUser.class);
-                startActivity(regisrar);
+                break;
+           /** case R.id.btnRegister:
+
+                Intent registrar = new Intent(this, RegisterUser.class);
+                startActivity(registrar);
                 Toast.makeText(this, "New Register", Toast.LENGTH_SHORT).show();
                 break;
+        **/
         }
     }
 
@@ -90,5 +99,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } finally {
             conn.close();
         }
+    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }
