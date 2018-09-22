@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.rodrigoespinoza.gestor_pedido.entitties.SqlConecttion;
+import com.example.rodrigoespinoza.gestor_pedido.fragmentos.RegistroFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Button btnOpenOrderView;// Solo para probar
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //Variables relacionadas al login del usuario
     EditText txtUser, txtPass;
     Button btnLogin, btnRegistrar;
+    RegistroFragment registroFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //Importamos las variables del diseño hasta aqui
         btnRegistrar = (Button) findViewById(R.id.btnRegister);
         btnRegistrar.setOnClickListener(this);
+        registroFragment = new RegistroFragment();
     }
 
     @Override
