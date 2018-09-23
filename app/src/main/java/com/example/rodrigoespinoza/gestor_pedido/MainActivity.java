@@ -66,7 +66,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Toast.makeText(this,"Usuario o Password incorrectos",Toast.LENGTH_SHORT).show();
                 }
                 break;
-            //case R.id.btnFragLoginRegistrar:
+
+            case R.id.btnFragLoginRegistrar:
+                break;
 
 
             case R.id.btnLogin:
