@@ -7,6 +7,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.rodrigoespinoza.gestor_pedido.R;
 
@@ -25,9 +28,10 @@ public class RegistroFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
+    EditText txtEmail, txtPass, txtRePass;
+    Button btnAddNewUser;
+    View view;
     private OnFragmentInteractionListener mListener;
 
     public RegistroFragment() {
@@ -55,17 +59,25 @@ public class RegistroFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_registro, container, false);
+        this.view = inflater.inflate(R.layout.fragment_registro, container, false);
+       this.txtEmail =  this.view.findViewById(R.id.txtEmail);
+        txtPass = this.view.findViewById(R.id.txtPass);
+        txtRePass = this.view.findViewById(R.id.txtRePass);
+        btnAddNewUser = this.view.findViewById(R.id.btnAddNewUser);
+        btnAddNewUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Botton ejecutado", Toast.LENGTH_SHORT).show();
+            }
+        });
+        return this.view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
