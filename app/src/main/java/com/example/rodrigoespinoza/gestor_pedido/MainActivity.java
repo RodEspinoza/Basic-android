@@ -1,6 +1,7 @@
 package com.example.rodrigoespinoza.gestor_pedido;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
@@ -12,46 +13,56 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.rodrigoespinoza.gestor_pedido.entitties.SqlConecttion;
-import com.example.rodrigoespinoza.gestor_pedido.fragmentos.RegistroFragment;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, RegistroFragment.OnFragmentInteractionListener {
+import com.example.rodrigoespinoza.gestor_pedido.Fragmentos.LoginFragment;
+import com.example.rodrigoespinoza.gestor_pedido.entitties.SqlConecttion;
+import com.example.rodrigoespinoza.gestor_pedido.Fragmentos.RegistroFragment;
+
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener,
+        RegistroFragment.OnFragmentInteractionListener, LoginFragment.OnFragmentInteractionListener
+{
     Button btnOpenOrderView;// Solo para probar
 
     //Variables relacionadas al login del usuario
     EditText txtUser, txtPass;
     Button btnLogin, btnRegistrar;
     RegistroFragment registroFragment;
-
+    LoginFragment loginFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
         //Instancionamos las variables creadas
-        txtUser = (EditText) findViewById(R.id.txtUser);
-        txtPass = (EditText) findViewById(R.id.txtPassword);
+        //txtUser = (EditText) findViewById(R.id.txtUser);
+        //txtPass = (EditText) findViewById(R.id.txtPassword);
         btnLogin = (Button) findViewById(R.id.btnLogin);
 
-        btnLogin.setOnClickListener(this); // Constantemente escuchando
+        btnLogin.setOnClickListener(this);
 
         //Importamos las variables del diseño hasta aqui
         btnRegistrar = (Button) findViewById(R.id.btnRegister);
         btnRegistrar.setOnClickListener(this);
-        registroFragment = new RegistroFragment();
+        this.registroFragment = new RegistroFragment();
+        this.loginFragment = new LoginFragment();
+        getSupportFragmentManager().beginTransaction().add(
+                R.id.contenedorFragment, this.loginFragment).commit();
 
+<<<<<<< HEAD
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         //fragmentTransaction.add(R.id.contenedorFragment, registroFragment).commit();
 
         //getSupportFragmentManager().beginTransaction().add(R.id.contenedorFragment,registroFragment).commit();
+=======
+>>>>>>> f845fc25c0275a0981549dec53abc88305214aa2
     }
 
     @Override
     public void onClick(View v) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         switch (v.getId()){
+<<<<<<< HEAD
             case R.id.btnFragLogin:
 
                 String user = txtUser.getText().toString();
@@ -68,14 +79,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnFragLoginRegistrar:
 
+=======
+            case R.id.btnLogin:
+                fragmentTransaction.replace(
+                        R.id.contenedorFragment, this.loginFragment).commit();
+                // auth
+>>>>>>> f845fc25c0275a0981549dec53abc88305214aa2
                 break;
-           /** case R.id.btnRegister:
-
-                Intent registrar = new Intent(this, RegisterUser.class);
-                startActivity(registrar);
-                Toast.makeText(this, "New Register", Toast.LENGTH_SHORT).show();
+            case R.id.btnRegister:
+                fragmentTransaction.replace(
+                        R.id.contenedorFragment, this.registroFragment).commit();
                 break;
-        **/
         }
     }
 
