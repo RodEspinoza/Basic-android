@@ -16,11 +16,10 @@ import android.widget.Toast;
 
 import com.example.rodrigoespinoza.gestor_pedido.Fragmentos.LoginFragment;
 import com.example.rodrigoespinoza.gestor_pedido.entitties.SqlConecttion;
-import com.example.rodrigoespinoza.gestor_pedido.Fragmentos.RegistroFragment;
+import com.example.rodrigoespinoza.gestor_pedido.fragmentos.RegistroFragment;
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener,
-        RegistroFragment.OnFragmentInteractionListener, LoginFragment.OnFragmentInteractionListener
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, RegistroFragment.OnFragmentInteractionListener, LoginFragment.OnFragmentInteractionListener
 {
     Button btnOpenOrderView;// Solo para probar
     //Variables relacionadas al login del usuario
@@ -66,10 +65,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Toast.makeText(this,"Usuario o Password incorrectos",Toast.LENGTH_SHORT).show();
                 }
                 break;
-
-            case R.id.btnFragLoginRegistrar:
-                break;
-
 
             case R.id.btnLogin:
                 fragmentTransaction.replace(R.id.contenedorFragment, this.loginFragment).commit();

@@ -69,7 +69,7 @@ public class RegisterPerson extends AppCompatActivity implements RadioGroup.OnCh
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, list_location);
         arrayAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
 
-        location.setAdapter(arrayAdapter);
+
 
         location.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

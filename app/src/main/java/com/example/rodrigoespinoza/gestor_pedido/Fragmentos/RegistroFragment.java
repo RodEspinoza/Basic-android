@@ -1,4 +1,4 @@
-package com.example.rodrigoespinoza.gestor_pedido.Fragmentos;
+package com.example.rodrigoespinoza.gestor_pedido.fragmentos;
 
 import android.content.Context;
 import android.net.Uri;
@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
@@ -14,6 +16,11 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.rodrigoespinoza.gestor_pedido.R;
+import com.example.rodrigoespinoza.gestor_pedido.entitties.Person;
+import com.example.rodrigoespinoza.gestor_pedido.entitties.User;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,9 +38,12 @@ public class RegistroFragment extends Fragment {
 
     // TODO: Rename and change types of parameters
     View view;
+    User usuario;
+    Person persona;
 
     EditText txtFragRegistroEmail, txtFragRegistroPass, txtFragRegistroRePass;
     EditText txtFragRegistroRut, txtFragRegistroNombre, txtFragRegistroApellido;
+    String sexoSeleccionado, localidad;
     RadioGroup rgFragRegistroSexo;
     Spinner spFragRegistroLocalidad;
     Button btnFragRegistroRegistrar;
@@ -72,25 +82,108 @@ public class RegistroFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         this.view = inflater.inflate(R.layout.fragment_registro, container, false);
+        this.usuario = new User();
+        this.persona = new Person();
 
-        this.txtFragRegistroEmail = this.view.findViewById(R.id.txtFragRegistroEmail);
-        this.txtFragRegistroPass = this.view.findViewById(R.id.txtFragRegistroPass);
-        this.txtFragRegistroRePass = this.view.findViewById(R.id.txtFragRegistroRePass);
-        this.txtFragRegistroRut = this.view.findViewById(R.id.txtFragRegistroRut);
-        this.txtFragRegistroNombre = this.view.findViewById(R.id.txtFragRegistroNombre);
-        this.txtFragRegistroApellido = this.view.findViewById(R.id.txtFragRegistroApellido);
-        this.rgFragRegistroSexo = this.view.findViewById(R.id.rgFragRegistroSexo);
-        this.spFragRegistroLocalidad = this.view.findViewById(R.id.spFragRegistroLocalidad);
+        this.txtFragRegistroEmail = (EditText) this.view.findViewById(R.id.txtFragRegistroEmail);
+        this.txtFragRegistroPass = (EditText) this.view.findViewById(R.id.txtFragRegistroPass);
+        this.txtFragRegistroRePass = (EditText) this.view.findViewById(R.id.txtFragRegistroRePass);
+        this.txtFragRegistroRut = (EditText) this.view.findViewById(R.id.txtFragRegistroRut);
+        this.txtFragRegistroNombre = (EditText) this.view.findViewById(R.id.txtFragRegistroNombre);
+        this.txtFragRegistroApellido = (EditText) this.view.findViewById(R.id.txtFragRegistroApellido);
+        this.rgFragRegistroSexo = (RadioGroup) this.view.findViewById(R.id.rgFragRegistroSexo);
+        this.rgFragRegistroSexo.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == R.id.rbFragRegistroHombre){
+                    sexoSeleccionado = "Masculino";
+                } else {
+                    sexoSeleccionado = "Femenino";
+                }
+            }
+        });
+        this.spFragRegistroLocalidad = (Spinner) this.view.findViewById(R.id.spFragRegistroLocalidad);
 
-        this.btnFragRegistroRegistrar = this.view.findViewById(R.id.btnFragRegistroRegistrar);
+        List localidades = new ArrayList<>();
+        localidades.add("Santiago");
+        localidades.add("Indepencia");
+        localidades.add("Conchali");
+        localidades.add("Huechuraba");
+        localidades.add("Recoleta");
+        localidades.add("Providencia");
+        localidades.add("Vitacura");
+        localidades.add("Lo Barnechea");
+        localidades.add("Las Condes");
+
+        ArrayAdapter arrayAdapter = new ArrayAdapter(getContext(), R.layout.support_simple_spinner_dropdown_item, localidades);
+        arrayAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+
+        this.spFragRegistroLocalidad.setAdapter(arrayAdapter);
+
+        this.spFragRegistroLocalidad.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                localidad = spFragRegistroLocalidad.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        this.btnFragRegistroRegistrar = (Button) this.view.findViewById(R.id.btnFragRegistroRegistrar);
         this.btnFragRegistroRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+                if (validaPassword(txtFragRegistroPass.getText().toString(), txtFragRegistroRePass.getText().toString())){
+                    if (validaRut(txtFragRegistroRut.getText().toString())){
+                        Toast.makeText(getContext(),txtFragRegistroEmail.getText().toString(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(),txtFragRegistroPass.getText().toString(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(),txtFragRegistroRut.getText().toString(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(),txtFragRegistroNombre.getText().toString(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(),txtFragRegistroApellido.getText().toString(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(),sexoSeleccionado, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(),localidad, Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getContext(),"Rut Invalido", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(getContext(),"Contraseñas Incorrectas", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
         return this.view;
+    }
+
+    private boolean validaRut(String rut) {
+        boolean valida = false;
+        rut = rut.replace(".","");
+        rut = rut.replace("-","");
+        try {
+            Integer rutAux = Integer.parseInt(rut.substring(0, rut.length() - 1));
+            char dv = rut.charAt(Integer.parseInt(rut.substring(rut.length() - 1, rut.length())));
+            int m = 0, s = 1;
+            for (; rutAux != 0; rutAux /= 10)
+            {
+                s = (s + rutAux % 10 * (9 - m++ % 6)) % 11;
+            }
+            if (dv == (char) (s != 0 ? s + 47 : 75)) {
+                valida = true;
+            }
+            return valida;
+        } catch (Exception ex){
+            return valida;
+        }
+    }
+
+    private boolean validaPassword(String password, String rePassword) {
+        if(password.equals(rePassword)){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     // TODO: Rename method, update argument and hook method into UI event
