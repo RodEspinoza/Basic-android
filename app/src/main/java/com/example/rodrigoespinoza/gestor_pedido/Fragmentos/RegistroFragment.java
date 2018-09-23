@@ -70,13 +70,13 @@ public class RegistroFragment extends Fragment {
        this.txtEmail =  this.view.findViewById(R.id.txtEmail);
         txtPass = this.view.findViewById(R.id.txtPass);
         txtRePass = this.view.findViewById(R.id.txtRePass);
-        btnAddNewUser = this.view.findViewById(R.id.btnAddNewUser);
+        /*btnAddNewUser = this.view.findViewById(R.id.btnAddNewUser);
         btnAddNewUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getContext(), "Botton ejecutado", Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
         return this.view;
     }
 

@@ -7,14 +7,14 @@
     <string name="txProductStock">Stock Producto</string>
     <string name="btnAddProduct">Agregar producto</string>
     <string name="title_activity_products">Productos</string>
-    <string name="btnLogin">Login</string>
+    <string name="btnLogin">Inicio Sesion</string>
     <string name="btnRegister">Registrarse</string>
     <string name="title_activity_login">LoginActivity</string>
-    <string name="txtUser">Usuario</string>
+    <string name="txtUser">Email</string>
     <string name="txtPassword">Contraseña</string>
     <string name="txtEmail">Email</string>
     <string name="txtRePassword">Repite Contraseña</string>
-    <string name="btnAddNewUser">Registrarse</string>
+    <string name="btnAddNewUser">Registro</string>
     <string name="title_activity_porders">Ordenes </string>
     <string name="title_activity_add_porder">Agregar Ordenes</string>
     <string name="btnAddOrder">Agregar orden</string>

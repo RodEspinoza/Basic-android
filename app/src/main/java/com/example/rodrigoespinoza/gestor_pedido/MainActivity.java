@@ -23,12 +23,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         RegistroFragment.OnFragmentInteractionListener, LoginFragment.OnFragmentInteractionListener
 {
     Button btnOpenOrderView;// Solo para probar
-
     //Variables relacionadas al login del usuario
     EditText txtUser, txtPass;
     Button btnLogin, btnRegistrar;
     RegistroFragment registroFragment;
     LoginFragment loginFragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,25 +38,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //txtUser = (EditText) findViewById(R.id.txtUser);
         //txtPass = (EditText) findViewById(R.id.txtPassword);
         btnLogin = (Button) findViewById(R.id.btnLogin);
-
         btnLogin.setOnClickListener(this);
 
         //Importamos las variables del diseño hasta aqui
         btnRegistrar = (Button) findViewById(R.id.btnRegister);
         btnRegistrar.setOnClickListener(this);
+
         this.registroFragment = new RegistroFragment();
         this.loginFragment = new LoginFragment();
-        getSupportFragmentManager().beginTransaction().add(
-        R.id.contenedorFragment, this.loginFragment).commit();
+        //getSupportFragmentManager().beginTransaction().add(R.id.contenedorFragment, this.loginFragment).commit();
     }
 
     @Override
     public void onClick(View v) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         switch (v.getId()){
-
             case R.id.btnFragLogin:
-
                 String user = txtUser.getText().toString();
                 String pass = txtPass.getText().toString();
                 Integer id = autenticaUsuario(user, pass);
@@ -69,17 +66,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Toast.makeText(this,"Usuario o Password incorrectos",Toast.LENGTH_SHORT).show();
                 }
                 break;
-            case R.id.btnFragLoginRegistrar:
+            //case R.id.btnFragLoginRegistrar:
 
 
             case R.id.btnLogin:
-                fragmentTransaction.replace(
-                        R.id.contenedorFragment, this.loginFragment).commit();
-                // auth
+                fragmentTransaction.replace(R.id.contenedorFragment, this.loginFragment).commit();
                 break;
             case R.id.btnRegister:
-                fragmentTransaction.replace(
-                        R.id.contenedorFragment, this.registroFragment).commit();
+                fragmentTransaction.replace(R.id.contenedorFragment, this.registroFragment).commit();
                 break;
         }
     }
