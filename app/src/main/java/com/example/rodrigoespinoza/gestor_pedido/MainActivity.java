@@ -47,14 +47,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.registroFragment = new RegistroFragment();
         this.loginFragment = new LoginFragment();
         getSupportFragmentManager().beginTransaction().add(
-                R.id.contenedorFragment, this.loginFragment).commit();
-
+        R.id.contenedorFragment, this.loginFragment).commit();
     }
 
     @Override
     public void onClick(View v) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         switch (v.getId()){
+
+            case R.id.btnFragLogin:
+
+                String user = txtUser.getText().toString();
+                String pass = txtPass.getText().toString();
+                Integer id = autenticaUsuario(user, pass);
+                Toast.makeText(this,id.toString(),Toast.LENGTH_SHORT).show();
+                if(id != 0){
+                    Intent intentMenuUser = new Intent(this, MenuActivity.class);
+                    intentMenuUser.putExtra("id",id);
+                    startActivity(intentMenuUser);
+                } else {
+                    Toast.makeText(this,"Usuario o Password incorrectos",Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case R.id.btnFragLoginRegistrar:
+
+
             case R.id.btnLogin:
                 fragmentTransaction.replace(
                         R.id.contenedorFragment, this.loginFragment).commit();
