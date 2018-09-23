@@ -1,13 +1,17 @@
 package com.example.rodrigoespinoza.gestor_pedido.Fragmentos;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
+import com.example.rodrigoespinoza.gestor_pedido.NewMenu;
 import com.example.rodrigoespinoza.gestor_pedido.R;
 
 /**
@@ -27,7 +31,9 @@ public class LoginFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
+    Button btnFragLogin;
+    Intent intent;
+    View view;
     private OnFragmentInteractionListener mListener;
 
     public LoginFragment() {
@@ -65,7 +71,18 @@ public class LoginFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false);
+        this.view = inflater.inflate(R.layout.fragment_login, container, false);
+        this.btnFragLogin = this.view.findViewById(R.id.btnFragLogin);
+        this.btnFragLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Falta switch
+                intent = new Intent(getContext(), NewMenu.class);
+                startActivity(intent);
+                Toast.makeText(getContext(), "Click Login", Toast.LENGTH_SHORT).show();
+            }
+        });
+        return this.view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

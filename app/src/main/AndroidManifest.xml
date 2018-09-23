@@ -33,7 +33,10 @@
         <activity android:name=".EditPersonActivity" />
         <activity
             android:name=".Activity_edit_product"
-            android:label="@string/title_activity_edit_product"></activity>
+            android:label="@string/title_activity_edit_product" />
+        <activity
+            android:name=".NewMenu"
+            android:label="@string/title_activity_new_menu"></activity>
     </application>
 
 </manifest>
