@@ -47,22 +47,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.registroFragment = new RegistroFragment();
         this.loginFragment = new LoginFragment();
         getSupportFragmentManager().beginTransaction().add(
-                R.id.contenedorFragment, this.loginFragment).commit();
-
-<<<<<<< HEAD
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        //fragmentTransaction.add(R.id.contenedorFragment, registroFragment).commit();
-
-        //getSupportFragmentManager().beginTransaction().add(R.id.contenedorFragment,registroFragment).commit();
-=======
->>>>>>> f845fc25c0275a0981549dec53abc88305214aa2
+        R.id.contenedorFragment, this.loginFragment).commit();
     }
 
     @Override
     public void onClick(View v) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         switch (v.getId()){
-<<<<<<< HEAD
+
             case R.id.btnFragLogin:
 
                 String user = txtUser.getText().toString();
@@ -79,12 +71,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnFragLoginRegistrar:
 
-=======
+
             case R.id.btnLogin:
                 fragmentTransaction.replace(
                         R.id.contenedorFragment, this.loginFragment).commit();
                 // auth
->>>>>>> f845fc25c0275a0981549dec53abc88305214aa2
                 break;
             case R.id.btnRegister:
                 fragmentTransaction.replace(
