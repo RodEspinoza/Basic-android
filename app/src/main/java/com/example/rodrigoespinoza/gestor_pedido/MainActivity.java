@@ -42,14 +42,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnRegistrar.setOnClickListener(this);
         registroFragment = new RegistroFragment();
 
-        //getSupportFragmentManager().beginTransaction().add(R.id.contenedorFragment, registroFragment).commit();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        //fragmentTransaction.add(R.id.contenedorFragment, registroFragment).commit();
+
+        //getSupportFragmentManager().beginTransaction().add(R.id.contenedorFragment,registroFragment).commit();
     }
 
     @Override
     public void onClick(View v) {
-        //FragmentTransaction fragmentTransaction = getSupportFragmentManager.beginTransaction();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         switch (v.getId()){
-            case R.id.btnLogin:
+            case R.id.btnFragLogin:
 
                 String user = txtUser.getText().toString();
                 String pass = txtPass.getText().toString();
@@ -63,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Toast.makeText(this,"Usuario o Password incorrectos",Toast.LENGTH_SHORT).show();
                 }
                 break;
-            case R.id.btnFragLoginRegistrat:
+            case R.id.btnFragLoginRegistrar:
 
                 break;
            /** case R.id.btnRegister:
