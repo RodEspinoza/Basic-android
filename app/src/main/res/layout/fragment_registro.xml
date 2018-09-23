@@ -6,7 +6,6 @@
     tools:context=".Fragmentos.RegistroFragment"
     android:orientation="vertical">
 
-
     <EditText
         android:id="@+id/txtFragRegistroEmail"
         android:layout_width="match_parent"
@@ -30,6 +29,68 @@
         android:ems="10"
         android:inputType="textPassword"
         android:hint="@string/txtRePassword" />
+
+    <EditText
+        android:id="@+id/txtFragRegistroRut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:maxLength="10"
+        android:hint="@string/txtRut"/>
+
+    <EditText
+        android:id="@+id/txtFragRegistroNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/txtName" />
+
+    <EditText
+        android:id="@+id/txtFragRegistroApellido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/txtLastName" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="9pt"
+        android:text=" Sexo" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rgFragRegistroSexo">
+
+        <RadioButton
+            android:id="@+id/rbFragRegistroHombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rbMacho" />
+
+        <RadioButton
+            android:id="@+id/rbFragRegistroMujer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rbHembra" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="9pt"
+        android:text=" Localidad" />
+
+    <Spinner
+        android:id="@+id/spFragRegistroLocalidad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/btnFragRegistroRegistrar"

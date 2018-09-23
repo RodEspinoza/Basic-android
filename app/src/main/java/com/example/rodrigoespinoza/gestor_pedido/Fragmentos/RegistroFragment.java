@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.rodrigoespinoza.gestor_pedido.R;
@@ -28,10 +30,14 @@ public class RegistroFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
 
     // TODO: Rename and change types of parameters
-
-    EditText txtEmail, txtPass, txtRePass;
-    Button btnAddNewUser;
     View view;
+
+    EditText txtFragRegistroEmail, txtFragRegistroPass, txtFragRegistroRePass;
+    EditText txtFragRegistroRut, txtFragRegistroNombre, txtFragRegistroApellido;
+    RadioGroup rgFragRegistroSexo;
+    Spinner spFragRegistroLocalidad;
+    Button btnFragRegistroRegistrar;
+
     private OnFragmentInteractionListener mListener;
 
     public RegistroFragment() {
@@ -63,20 +69,27 @@ public class RegistroFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         this.view = inflater.inflate(R.layout.fragment_registro, container, false);
-       this.txtEmail =  this.view.findViewById(R.id.txtEmail);
-        txtPass = this.view.findViewById(R.id.txtPass);
-        txtRePass = this.view.findViewById(R.id.txtRePass);
-        /*btnAddNewUser = this.view.findViewById(R.id.btnAddNewUser);
-        btnAddNewUser.setOnClickListener(new View.OnClickListener() {
+
+        this.txtFragRegistroEmail = this.view.findViewById(R.id.txtFragRegistroEmail);
+        this.txtFragRegistroPass = this.view.findViewById(R.id.txtFragRegistroPass);
+        this.txtFragRegistroRePass = this.view.findViewById(R.id.txtFragRegistroRePass);
+        this.txtFragRegistroRut = this.view.findViewById(R.id.txtFragRegistroRut);
+        this.txtFragRegistroNombre = this.view.findViewById(R.id.txtFragRegistroNombre);
+        this.txtFragRegistroApellido = this.view.findViewById(R.id.txtFragRegistroApellido);
+        this.rgFragRegistroSexo = this.view.findViewById(R.id.rgFragRegistroSexo);
+        this.spFragRegistroLocalidad = this.view.findViewById(R.id.spFragRegistroLocalidad);
+
+        this.btnFragRegistroRegistrar = this.view.findViewById(R.id.btnFragRegistroRegistrar);
+        this.btnFragRegistroRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Botton ejecutado", Toast.LENGTH_SHORT).show();
+                
             }
-        });*/
+        });
+
         return this.view;
     }
 
