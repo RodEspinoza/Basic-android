@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.registroFragment = new RegistroFragment();
         this.loginFragment = new LoginFragment();
         getSupportFragmentManager().beginTransaction().add(
-                R.id.contenedorFragment, this.registroFragment).commit();
+                R.id.contenedorFragment, this.loginFragment).commit();
 
     }
 
