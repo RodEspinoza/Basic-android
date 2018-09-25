@@ -1,9 +1,13 @@
 package com.example.rodrigoespinoza.gestor_pedido.fragmentos;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +21,12 @@ import android.widget.Toast;
 
 import com.example.rodrigoespinoza.gestor_pedido.R;
 import com.example.rodrigoespinoza.gestor_pedido.entitties.Person;
+import com.example.rodrigoespinoza.gestor_pedido.entitties.SqlConecttion;
 import com.example.rodrigoespinoza.gestor_pedido.entitties.User;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -138,13 +145,21 @@ public class RegistroFragment extends Fragment {
             public void onClick(View v) {
                 if (validaPassword(txtFragRegistroPass.getText().toString(), txtFragRegistroRePass.getText().toString())){
                     if (validaRut(txtFragRegistroRut.getText().toString())){
-                        Toast.makeText(getContext(),txtFragRegistroEmail.getText().toString(), Toast.LENGTH_SHORT).show();
-                        Toast.makeText(getContext(),txtFragRegistroPass.getText().toString(), Toast.LENGTH_SHORT).show();
-                        Toast.makeText(getContext(),txtFragRegistroRut.getText().toString(), Toast.LENGTH_SHORT).show();
-                        Toast.makeText(getContext(),txtFragRegistroNombre.getText().toString(), Toast.LENGTH_SHORT).show();
-                        Toast.makeText(getContext(),txtFragRegistroApellido.getText().toString(), Toast.LENGTH_SHORT).show();
-                        Toast.makeText(getContext(),sexoSeleccionado, Toast.LENGTH_SHORT).show();
-                        Toast.makeText(getContext(),localidad, Toast.LENGTH_SHORT).show();
+
+                        usuario.setEmail(txtFragRegistroEmail.getText().toString());
+                        usuario.setPass(txtFragRegistroPass.getText().toString());
+                        persona.setRut(txtFragRegistroRut.getText().toString());
+                        persona.setName(txtFragRegistroNombre.getText().toString());
+                        persona.setLast_name(txtFragRegistroApellido.getText().toString());
+                        persona.setSexo(sexoSeleccionado);
+                        persona.setLocation(localidad);
+                        persona.setId_user(registrarUsuario(usuario));
+
+                        if (registrarPersona(persona) != 0) {
+                            Toast.makeText(getContext(), "Registrado", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(getContext(), "Ha ocurrido un problema, intentelo mas tarde", Toast.LENGTH_SHORT).show();
+                        }
                     } else {
                         Toast.makeText(getContext(),"Rut Invalido", Toast.LENGTH_SHORT).show();
                     }
@@ -155,6 +170,35 @@ public class RegistroFragment extends Fragment {
         });
 
         return this.view;
+    }
+
+    private Integer registrarPersona(Person persona) {
+        return 0;
+    }
+
+    private Integer registrarUsuario(User usuario) {
+        SqlConecttion conexion = new SqlConecttion(getContext(), "bd_gestor_pedidos", null, 1);
+        SQLiteDatabase dataBase = conexion.getWritableDatabase();
+        try {
+            ContentValues nuevoUsuario = new ContentValues();
+            nuevoUsuario.put("email", usuario.getEmail());
+            nuevoUsuario.put("pass", usuario.getPass());
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+            Date date = new Date();
+            nuevoUsuario.put("fecha", dateFormat.format(date));
+            Long id = dataBase.insert("user", "id",nuevoUsuario);
+            dataBase.close();
+            conexion.close();
+            return Integer.parseInt(id.toString());
+        } catch (Exception ex) {
+            dataBase.close();
+            conexion.close();
+            Toast.makeText(getContext(),"No pude registrar, " + ex.getMessage().toString(), Toast.LENGTH_SHORT).show();
+            return 0;
+        } finally {
+            dataBase.close();
+            conexion.close();
+        }
     }
 
     private boolean validaRut(String rut) {
