@@ -173,7 +173,29 @@ public class RegistroFragment extends Fragment {
     }
 
     private Integer registrarPersona(Person persona) {
-        return 0;
+        SqlConecttion conexion = new SqlConecttion(getContext(), "bd_gestor_pedidos", null, 1);
+        SQLiteDatabase dataBase = conexion.getWritableDatabase();
+        try {
+            ContentValues nuevaPersona = new ContentValues();
+            nuevaPersona.put("rut", persona.getRut());
+            nuevaPersona.put("name", persona.getName());
+            nuevaPersona.put("last_name", persona.getLast_name());
+            nuevaPersona.put("sexo", persona.getSexo());
+            nuevaPersona.put("location", persona.getLocation());
+            nuevaPersona.put("id_user", persona.getId_user());
+            Long id = dataBase.insert("person", "id", nuevaPersona);
+            Toast.makeText(getContext(), id.toString(), Toast.LENGTH_SHORT).show();
+            dataBase.close();
+            conexion.close();
+            return Integer.parseInt(id.toString());
+        } catch (Exception ex) {
+            dataBase.close();
+            conexion.close();
+            Toast.makeText(getContext(),"No pude registrar, " + ex.getMessage().toString(), Toast.LENGTH_SHORT).show();
+            return 0;
+        } finally {
+            dataBase.close();
+        }
     }
 
     private Integer registrarUsuario(User usuario) {
@@ -187,6 +209,7 @@ public class RegistroFragment extends Fragment {
             Date date = new Date();
             nuevoUsuario.put("fecha", dateFormat.format(date));
             Long id = dataBase.insert("user", "id",nuevoUsuario);
+            //Toast.makeText(getContext(), id.toString(), Toast.LENGTH_SHORT).show();
             dataBase.close();
             conexion.close();
             return Integer.parseInt(id.toString());
@@ -197,7 +220,6 @@ public class RegistroFragment extends Fragment {
             return 0;
         } finally {
             dataBase.close();
-            conexion.close();
         }
     }
 
